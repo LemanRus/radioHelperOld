@@ -1,0 +1,113 @@
+<RadioHelperScreenManager>:
+    MainScreen:
+    NominalsScreen:
+    ComponentsScreen:
+    PinsScreen:
+    SchemesScreen:
+    SymbolsScreen:
+    StatesScreen:
+    HelpScreen:
+    AboutScreen:
+
+<MainScreen>:
+    name: "main"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            id: title1
+            text: "Здесь будет заголовок"
+            font_size: 30
+            size_hint_y: None
+            height: 40
+        BoxLayout:
+            Button:
+                text: "Button 1"
+                font_size: 30
+                on_release: root.manager.current = "nominal"
+            Button:
+                text: "Button 2"
+                font_size: 30
+                on_release: root.manager.current = "components"
+        BoxLayout:
+            Button:
+                text: "Button 3"
+                font_size: 30
+                on_release: root.manager.current = "pins"
+            Button:
+                text: "Button 4"
+                font_size: 30
+                on_release: root.manager.current = "schemes"
+        BoxLayout:
+            Button:
+                text: "Button 5"
+                font_size: 30
+                on_release: root.manager.current = "symbols"
+            Button:
+                text: "Button 6"
+                font_size: 30
+                on_release: root.manager.current = "states"
+        BoxLayout:
+            Button:
+                text: "Button 7"
+                font_size: 30
+                on_release: root.manager.current = "help"
+            Button:
+                text: "Button 8"
+                font_size: 30
+                on_release: root.manager.current = "about"
+
+<NominalsScreen>:
+    name: "nominal"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будут расчёты компонентов"
+            on_release: root.manager.current = "main"
+
+<ComponentsScreen>:
+    name: "components"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будут номиналы"
+            on_release: root.manager.current = "main"
+
+<PinsScreen>:
+    name: "pins"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будут распиновки"
+            on_release: root.manager.current = "main"
+
+<SchemesScreen>:
+    name: "schemes"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будут схемы"
+            on_release: root.manager.current = "main"
+
+<SymbolsScreen>:
+    name: "symbols"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будут обозначения"
+            on_release: root.manager.current = "main"
+
+<StatesScreen>:
+    name: "states"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будут статьи"
+            on_release: root.manager.current = "main"
+
+<HelpScreen>:
+    name: "help"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будет помощь"
+            on_release: root.manager.current = "main"
+
+<AboutScreen>:
+    name: "about"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будет 'о программе'"
+            on_release: root.manager.current = "main"
