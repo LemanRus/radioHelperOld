@@ -1,5 +1,8 @@
+#: import App kivy.app.App
+
 <RadioHelperScreenManager>:
     MainScreen:
+        id: one
     NominalsScreen:
     ComponentsScreen:
     PinsScreen:
@@ -16,7 +19,7 @@
         Label:
             id: title1
             text: "Здесь будет заголовок"
-            font_size: 30
+            font_size: app.root.trash.headers_font_size
             size_hint_y: None
             height: 40
         BoxLayout:
@@ -55,6 +58,10 @@
                 text: "Button 8"
                 font_size: 30
                 on_release: root.manager.current = "about"
+        Button:
+            text: "Настройки"
+            font_size: 100
+            on_release: app.open_settings()
 
 <NominalsScreen>:
     name: "nominal"
