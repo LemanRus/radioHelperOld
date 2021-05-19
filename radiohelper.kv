@@ -1,6 +1,8 @@
 #: import App kivy.app.App
+#: import SlideTransition kivy.uix.screenmanager.SlideTransition
 
 <RadioHelperScreenManager>:
+    transition: SlideTransition(direction = "up")
     MainScreen:
         id: one
     NominalsScreen:
