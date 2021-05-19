@@ -22,6 +22,14 @@ class NominalsScreen(Screen):
     pass
 
 
+class ResistorScreen(Screen):
+    pass
+
+
+class CapacitorScreen(Screen):
+    pass
+
+
 class ComponentsScreen(Screen):
     pass
 
@@ -51,8 +59,6 @@ class AboutScreen(Screen):
 
 
 class RadioHelperApp(App):
-    data = ObjectProperty(None)
-    data.headers_font_size = NumericProperty(Config.getint("font", "размер шрифта заголовков"))
 
     def build(self):
         self.settings_cls = SettingsWithSidebar
@@ -62,7 +68,7 @@ class RadioHelperApp(App):
 
     def build_config(self, config) :
         config.setdefaults("font", {
-            "Размер шрифта заголовков" : 30,
+            "Размер шрифта заголовков" : 150,
             "Размер шрифта текста" : 50,
             })
 
@@ -72,7 +78,13 @@ class RadioHelperApp(App):
                                 data=settings_json)
 
     def on_config_change(self, config, section, key, value):
-        self.root.ids.one.ids.title1.font_size = value
+        if key == "Размер шрифта заголовков":
+            self.root.ids.one.ids.title1.font_size = value
+        if key == "Размер шрифта текста":
+            for up_id in self.root.ids:
+                if up_id != 'title1':
+                    for low_id in self.root.ids[up_id].ids:
+                        self.root.ids[up_id].ids[low_id].font_size = value
 
 
 if __name__ == '__main__':
