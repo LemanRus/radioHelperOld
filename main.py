@@ -25,16 +25,18 @@ class NominalsScreen(Screen):
 
 
 class ResistorScreen(Screen):
+    nominal = ["black", "brown", "red", "orange", "yellow", "green",
+               "blue", "violet", "grey", "white"]
 
     def calculate_resistor(self):
         band_list = ["first", "second"]
         resistance = 0
         tolerance = 0
-        nominal = ("black", "brown", "red", "orange", "yellow", "green",
-                   "blue", "violet", "grey", "white")
+
         for band in self.ids:
             if band in band_list:
                 print(self.ids[band].text)
+
     def draw_bands(self):
         pass
 
