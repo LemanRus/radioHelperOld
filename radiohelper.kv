@@ -8,6 +8,7 @@
     NominalsScreen:
         id: nominal
     ResistorScreen:
+        id: resistor
     CapacitorScreen:
     ComponentsScreen:
         id: components
@@ -102,6 +103,43 @@
     name: "resistor"
     BoxLayout:
         orientation: "vertical"
+        Spinner:
+            id: main_spinner
+            text: '4'
+            values: '4', '5'
+            on_text: root.change_bands()
+        BoxLayout:
+            id: resistor_grid
+            cols: 7
+            Label:
+            Spinner:
+                id: first
+                text: 'Home'
+                values: 'Home', 'Work', 'Other', 'Custom'
+            Spinner:
+                id: second
+                text: 'Home'
+                values: 'Home', 'Work', 'Other', 'Custom'
+            Spinner:
+                id: third
+                text: 'Home'
+                values: 'Home', 'Work', 'Other', 'Custom'
+            Spinner:
+                id: fourth
+                text: 'Home'
+                values: 'Home', 'Work', 'Other', 'Custom'
+            Spinner:
+                id: fifth
+                text: 'Home'
+                values: 'Home', 'Work', 'Other', 'Custom'
+            Label:
+#TODO: обавить функционал кнопки, передать результат в надпись
+        Button:
+            text: "Рассчитать"
+            font_size: app.config.getint("font", "Размер шрифта текста")
+            on_release: root.calculate_resistor()
+        Label:
+            text: "Здесь будет расчёт"
         Button:
             text: "Назад"
             font_size: app.config.getint("font", "Размер шрифта текста")
