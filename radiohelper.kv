@@ -141,6 +141,7 @@
             on_release: root.calculate_resistor()
         Label:
             text: "Здесь будет расчёт"
+            font_size: app.config.getint("font", "Размер шрифта заголовков")
         Button:
             text: "Назад"
             font_size: app.config.getint("font", "Размер шрифта текста")
