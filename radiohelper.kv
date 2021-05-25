@@ -1,8 +1,8 @@
 #: import App kivy.app.App
-#: import SlideTransition kivy.uix.screenmanager.SlideTransition
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
 
 <RadioHelperScreenManager>:
-    transition: SlideTransition(direction = "up")
+    transition: FadeTransition()
     MainScreen:
         id: one
     NominalsScreen:
@@ -107,17 +107,16 @@
             id: main_spinner
             text: '4'
             values: '4', '5'
+            on_parent: root.build_resistor(self.text)
             on_text: root.build_resistor(self.text)
         BoxLayout:
             id: resistor_grid
             cols: 7
-            #TODO Заполнить динамически количеством кнопок, в зависимости от выбора кнопкой выше
+            spacing: 20
             Label:
                 size_hint_x: 0.15
             BoxLayout:
                 id: resistor_bands
-                Button:
-                    text: "testMe"
             Label:
                 size_hint_x: 0.15
 
@@ -125,8 +124,9 @@
         Button:
             text: "Рассчитать"
             font_size: app.config.getint("font", "Размер шрифта текста")
-            on_release: root.calculate_resistor()
+            on_release: root.calculate_resistor(main_spinner.text)
         Label:
+            id: resistance
             text: "Здесь будет расчёт"
             font_size: app.config.getint("font", "Размер шрифта заголовков")
         Button:
