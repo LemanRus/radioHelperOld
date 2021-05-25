@@ -96,14 +96,25 @@ class ResistorScreen(Screen):
 
         tolerance = self.tolerance[self.ids.resistor_bands.children[0].text]
         if resistance < 1000:
-            self.ids.resistance.text = "{} {}".format(resistance, tolerance)
+            self.ids.resistance.text = "{:g} {}".format(resistance, tolerance)
         elif resistance < 1000000:
-            self.ids.resistance.text = "{:.0f} кОм {}".format(resistance / 1000, tolerance)
+            self.ids.resistance.text = "{:g} кОм {}".format(resistance / 1000, tolerance)
         else:
-            self.ids.resistance.text = "{:.0f} МОм {}".format(resistance / 1000000, tolerance)
+            self.ids.resistance.text = "{:g} МОм {}".format(resistance / 1000000, tolerance)
 
     def calculate_five_bands_resistor(self):
-        pass
+        resistance = (self.nominal[self.ids.resistor_bands.children[8].text] * 100 + \
+                      self.nominal[self.ids.resistor_bands.children[6].text] * 10 + \
+                      self.nominal[self.ids.resistor_bands.children[4].text]) * \
+                      self.multiplier[self.ids.resistor_bands.children[2].text]
+
+        tolerance = self.tolerance[self.ids.resistor_bands.children[0].text]
+        if resistance < 1000:
+            self.ids.resistance.text = "{:g} {}".format(resistance, tolerance)
+        elif resistance < 1000000:
+            self.ids.resistance.text = "{:g} кОм {}".format(resistance / 1000, tolerance)
+        else:
+            self.ids.resistance.text = "{:g} МОм {}".format(resistance / 1000000, tolerance)
 
 
 class CapacitorScreen(Screen):
