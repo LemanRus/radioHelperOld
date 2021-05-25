@@ -107,32 +107,19 @@
             id: main_spinner
             text: '4'
             values: '4', '5'
+            on_text: root.build_resistor(self.text)
         BoxLayout:
             id: resistor_grid
             cols: 7
             #TODO Заполнить динамически количеством кнопок, в зависимости от выбора кнопкой выше
             Label:
-            Spinner:
-                id: first
-                text: root.nominal[0]
-                values: root.nominal
-            Spinner:
-                id: second
-                text: root.nominal[0]
-                values: root.nominal
-            Spinner:
-                id: third
-                text: root.nominal[0]
-                values: root.nominalm'
-            Spinner:
-                id: fourth
-                text: root.nominal[0]
-                values: root.nominal
-            Spinner:
-                id: fifth
-                text: root.nominal[0]
-                values: root.nominal
+                size_hint_x: 0.15
+            BoxLayout:
+                id: resistor_bands
+                Button:
+                    text: "testMe"
             Label:
+                size_hint_x: 0.15
 
 #TODO: обавить функционал кнопки, передать результат в надпись
         Button:

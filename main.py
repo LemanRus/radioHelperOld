@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.properties import NumericProperty, ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.settings import SettingsWithSidebar
@@ -37,8 +38,11 @@ class ResistorScreen(Screen):
             if band in band_list:
                 print(self.ids[band].text)
 
-    def draw_bands(self):
-        pass
+    def build_resistor(self, value):
+        value = int(value)
+        self.ids.resistor_bands.clear_widgets()
+        for i in range(0, value):
+            self.ids["resistor_bands"].add_widget(Button(text=str(i)))
 
 
 class CapacitorScreen(Screen):
