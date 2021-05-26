@@ -120,8 +120,9 @@
             Label:
                 size_hint_x: 0.15
         Spinner:
-            text: "1"
-            values: "1", "2", "3"
+            text: "blue"
+            values: "blue", "gold", "red"
+            background_color: root.colors[self.text]
 
 #TODO: обавить функционал кнопки, передать результат в надпись
         Button:
