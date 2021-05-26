@@ -1,6 +1,6 @@
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.properties import NumericProperty, ObjectProperty
+from kivy.properties import NumericProperty, ObjectProperty, DictProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
@@ -28,6 +28,8 @@ class NominalsScreen(Screen):
 
 
 class ResistorScreen(Screen):
+    dynamic_ids = DictProperty({})
+
     nominal = {"black": 0, "brown": 1, "red": 2, "orange": 3, "yellow": 4, "green": 5,
                "blue": 6, "violet": 7, "grey": 8, "white": 9}
     multiplier = {"gold": 0.1, "silver": 0.01, "black": 1, "brown": 10, "red": 100, "orange": 1000, "yellow": 10000,
@@ -40,6 +42,9 @@ class ResistorScreen(Screen):
               "brown": [0.4, 0.22, 0, 1], "red": [1, 0, 0, 1], "orange": [0.98, 0.45, 0.02, 1],
               "yellow": [1, 1, 0, 1], "green": [0.05, 0.64, 0.05, 1], "blue": [0.05, 0.54, 0.95, 1],
               "violet": [0.54, 0.14, 0.59, 1], "grey": [0.5, 0.5, 0.5, 1], "white": [1, 1, 1, 1]}
+
+    def select_color(self):
+        pass
 
     def calculate_resistor(self, value):
         if value == "4":
@@ -56,9 +61,8 @@ class ResistorScreen(Screen):
     def build_four_bands_resistor(self):
         self.ids.resistor_bands.clear_widgets()
 
-        self.ids["resistor_bands"].add_widget(Spinner(
-            text=list(self.nominal.keys())[1], values=list(self.nominal.keys())[1:],
-        ))
+        self.ids["resistor_bands"].add_widget(Spinner(id="test",
+            text=list(self.nominal.keys())[1], values=list(self.nominal.keys())[1:]))
         self.ids["resistor_bands"].add_widget(Widget(size_hint_x=0.2))
 
         self.ids["resistor_bands"].add_widget(Spinner(
@@ -71,6 +75,7 @@ class ResistorScreen(Screen):
 
         self.ids["resistor_bands"].add_widget(Spinner(
             text=list(self.tolerance.keys())[0], values=self.tolerance.keys()))
+        print(self.ids)
 
     def build_five_bands_resistor(self):
         self.ids.resistor_bands.clear_widgets()
