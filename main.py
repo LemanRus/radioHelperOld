@@ -28,7 +28,7 @@ class NominalsScreen(Screen):
 
 
 class ResistorScreen(Screen):
-    dynamic_ids = DictProperty({})
+    dynamic_vars = DictProperty({})
 
     nominal = {"black": 0, "brown": 1, "red": 2, "orange": 3, "yellow": 4, "green": 5,
                "blue": 6, "violet": 7, "grey": 8, "white": 9}
@@ -53,51 +53,21 @@ class ResistorScreen(Screen):
             self.calculate_five_bands_resistor()
 
     def build_resistor(self, value):
-        if value == "4":
-            self.build_four_bands_resistor()
-        elif value == "5":
-            self.build_five_bands_resistor()
+        bands = {3: {1: list(self.nominal.keys())[1:], 2: list(self.nominal.keys()), 3: list(self.multiplier.keys()),
+                 4: {},
+                 5: {},
+                 6: {}
+                     }}
 
-    def build_four_bands_resistor(self):
         self.ids.resistor_bands.clear_widgets()
 
-        self.ids["resistor_bands"].add_widget(Spinner(text=list(self.nominal.keys())[1],
-                                                      values=list(self.nominal.keys())[1:]))
-        self.ids["resistor_bands"].add_widget(Widget(size_hint_x=0.2))
-
-        self.ids["resistor_bands"].add_widget(Spinner(
-            text=list(self.nominal.keys())[0], values=self.nominal.keys()))
-        self.ids["resistor_bands"].add_widget(Widget(size_hint_x=0.2))
-
-        self.ids["resistor_bands"].add_widget(Spinner(
-            text=list(self.multiplier.keys())[0], values=self.multiplier.keys()))
-        self.ids["resistor_bands"].add_widget(Widget(size_hint_x=0.2))
-
-        self.ids["resistor_bands"].add_widget(Spinner(
-            text=list(self.tolerance.keys())[0], values=self.tolerance.keys()))
-
-    def build_five_bands_resistor(self):
-        self.ids.resistor_bands.clear_widgets()
-
-        self.ids["resistor_bands"].add_widget(Spinner(
-            text=list(self.nominal.keys())[1], values=list(self.nominal.keys())[1:],
-        ))
-        self.ids["resistor_bands"].add_widget(Widget(size_hint_x=0.2))
-
-        self.ids["resistor_bands"].add_widget(Spinner(
-            text=list(self.nominal.keys())[0], values=self.nominal.keys()))
-        self.ids["resistor_bands"].add_widget(Widget(size_hint_x=0.2))
-
-        self.ids["resistor_bands"].add_widget(Spinner(
-            text=list(self.nominal.keys())[0], values=self.nominal.keys()))
-        self.ids["resistor_bands"].add_widget(Widget(size_hint_x=0.2))
-
-        self.ids["resistor_bands"].add_widget(Spinner(
-            text=list(self.multiplier.keys())[0], values=self.multiplier.keys()))
-        self.ids["resistor_bands"].add_widget(Widget(size_hint_x=0.2))
-
-        self.ids["resistor_bands"].add_widget(Spinner(
-            text=list(self.tolerance.keys())[0], values=self.tolerance.keys()))
+        for i in range(0, int(value)):
+            self.dynamic_vars["band{}".format(i)] = Spinner(text=list(self.nominal.keys())[1],
+                                                            values=list(self.nominal.keys())[1:])
+            self.ids["resistor_bands"].add_widget(self.dynamic_vars["band{}".format(i)])
+            if i < int(value) - 1:
+                self.dynamic_vars["gap{}".format(i)] = Widget(size_hint_x=0.2)
+                self.ids["resistor_bands"].add_widget(self.dynamic_vars["gap{}".format(i)])
 
     def calculate_four_bands_resistor(self):
         resistance = (self.nominal[self.ids.resistor_bands.children[6].text] * 10 +
