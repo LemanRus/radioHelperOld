@@ -61,8 +61,8 @@ class ResistorScreen(Screen):
     def build_four_bands_resistor(self):
         self.ids.resistor_bands.clear_widgets()
 
-        self.ids["resistor_bands"].add_widget(Spinner(id="test",
-            text=list(self.nominal.keys())[1], values=list(self.nominal.keys())[1:]))
+        self.ids["resistor_bands"].add_widget(Spinner(text=list(self.nominal.keys())[1],
+                                                      values=list(self.nominal.keys())[1:]))
         self.ids["resistor_bands"].add_widget(Widget(size_hint_x=0.2))
 
         self.ids["resistor_bands"].add_widget(Spinner(
@@ -75,7 +75,6 @@ class ResistorScreen(Screen):
 
         self.ids["resistor_bands"].add_widget(Spinner(
             text=list(self.tolerance.keys())[0], values=self.tolerance.keys()))
-        print(self.ids)
 
     def build_five_bands_resistor(self):
         self.ids.resistor_bands.clear_widgets()
