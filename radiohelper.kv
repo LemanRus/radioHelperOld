@@ -26,7 +26,7 @@
         Label:
             id: title1
             text: "Здесь будет заголовок"
-            font_size: app.config.getint("font", "Размер шрифта заголовков")
+            font_size: app.config.getint("font", "header_size")
             size_hint_y: None
             height: 40
         BoxLayout:
@@ -36,50 +36,50 @@
                 text_size: self.size
                 halign: "center"
                 valign: "center"
-                font_size: app.config.getint("font", "Размер шрифта текста")
+                font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "nominal"
             Button:
                 id: button2
                 text: "Button 2"
-                font_size: app.config.getint("font", "Размер шрифта текста")
+                font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "components"
         BoxLayout:
             Button:
                 id: button3
                 text: "Button 3"
-                font_size: app.config.getint("font", "Размер шрифта текста")
+                font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "pins"
             Button:
                 id: button4
                 text: "Button 4"
-                font_size: app.config.getint("font", "Размер шрифта текста")
+                font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "schemes"
         BoxLayout:
             Button:
                 id: button5
                 text: "Button 5"
-                font_size: app.config.getint("font", "Размер шрифта текста")
+                font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "symbols"
             Button:
                 text: "Button 6"
                 id: button6
-                font_size: app.config.getint("font", "Размер шрифта текста")
+                font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "states"
         BoxLayout:
             Button:
                 id: button7
                 text: "Button 7"
-                font_size: app.config.getint("font", "Размер шрифта текста")
+                font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "help"
             Button:
                 id: button8
                 text: "Button 8"
-                font_size: app.config.getint("font", "Размер шрифта текста")
+                font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "about"
         Button:
             id: button_set
             text: "Настройки"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: app.open_settings()
 
 <NominalsScreen>:
@@ -88,15 +88,15 @@
         orientation: "vertical"
         Button:
             text: "Резисторы"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "resistor"
         Button:
             text: "Конденсаторы"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "capacitor"
         Button:
             text: "На главный\nЗдесь будут расчёты компонентов"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "main"
 
 <ResistorScreen>:
@@ -128,19 +128,19 @@
 
         Button:
             text: "Рассчитать"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.calculate_resistor(main_spinner.text)
         Label:
             id: resistance
             text: "Здесь будет расчёт"
-            font_size: app.config.getint("font", "Размер шрифта заголовков")
+            font_size: app.config.getint("font", "header_size")
         Button:
             text: "Назад"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "nominal"
         Button:
             text: "На главный"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "main"
 
 <CapacitorScreen>:
@@ -149,11 +149,11 @@
         orientation: "vertical"
         Button:
             text: "Назад"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "nominal"
         Button:
             text: "На главный"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "main"
 
 <ComponentsScreen>:
@@ -161,7 +161,7 @@
     BoxLayout:
         Button:
             text: "На главный\nЗдесь будут номиналы"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "main"
 
 <PinsScreen>:
@@ -169,7 +169,7 @@
     BoxLayout:
         Button:
             text: "На главный\nЗдесь будут распиновки"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "main"
 
 <SchemesScreen>:
@@ -177,7 +177,7 @@
     BoxLayout:
         Button:
             text: "На главный\nЗдесь будут схемы"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "main"
 
 <SymbolsScreen>:
@@ -185,7 +185,7 @@
     BoxLayout:
         Button:
             text: "На главный\nЗдесь будут обозначения"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "main"
 
 <StatesScreen>:
@@ -193,7 +193,7 @@
     BoxLayout:
         Button:
             text: "На главный\nЗдесь будут статьи"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "main"
 
 <HelpScreen>:
@@ -201,7 +201,7 @@
     BoxLayout:
         Button:
             text: "На главный\nЗдесь будет помощь"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "main"
 
 <AboutScreen>:
@@ -209,5 +209,5 @@
     BoxLayout:
         Button:
             text: "На главный\nЗдесь будет 'о программе'"
-            font_size: app.config.getint("font", "Размер шрифта текста")
+            font_size: app.config.getint("font", "text_size")
             on_release: root.manager.current = "main"
