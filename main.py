@@ -153,8 +153,8 @@ class RadioHelperApp(App):
 
     def build_config(self, config):
         config.setdefaults("font", {
-            "Размер шрифта заголовков": 150,
-            "Размер шрифта текста": 50,
+            "header_size": 150,
+            "text_size": 50,
         })
 
     def build_settings(self, settings):
@@ -163,9 +163,9 @@ class RadioHelperApp(App):
                                 data=settings_json)
 
     def on_config_change(self, config, section, key, value):
-        if key == "Размер шрифта заголовков":
+        if key == "header_size":
             self.root.ids.one.ids.title1.font_size = value
-        if key == "Размер шрифта текста":
+        if key == "text_size":
             for up_id in self.root.ids:
                 if up_id != 'title1':
                     for low_id in self.root.ids[up_id].ids:

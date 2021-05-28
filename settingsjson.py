@@ -7,10 +7,10 @@ settings_json = json.dumps([
      'title': 'Размер шрифта заголовков',
      'desc': 'Numeric description text',
      'section': 'font',
-     'key': 'Размер шрифта заголовков'},
+     'key': 'header_size'},
     {'type': 'numeric',
      'title': 'Размер шрифта текста',
      'desc': 'Numeric description text',
      'section': 'font',
-     'key': 'Размер шрифта текста'},
+     'key': 'text_size'},
 ])
