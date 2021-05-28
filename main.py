@@ -36,8 +36,9 @@ class ResistorScreen(Screen):
                   "green": 100000, "blue": 1000000, "violet": 10000000, "grey": 100000000}
     tolerance = {"gold": "±5%", "silver": "±10%", "black": "±0,005%", "brown": "±1%", "red": "±2%", "orange": "±0,01%",
                  "yellow": "±0,02%", "green": "±0,5%", "blue": "±0,25%", "violet": "±0,1%", "grey": "±0,05%"}
-    thermal = {"gold": "±5%", "silver": "±10%", "brown": "±1%", "red": "±2%", "orange": "±0,01%",
-               "yellow": "±0,02%", "blue": "±0,25%", "violet": "±0,1%", "white": "±0,05%"}
+    thermal = {"gold": "±500 ppm/°С", "silver": "±1000 ppm/°С", "brown": "±100 ppm/°С", "red": "±50 ppm/°С",
+               "orange": "±15 ppm/°С", "yellow": "±25 ppm/°С", "blue": "±10 ppm/°С", "violet": "±5 ppm/°С",
+               "white": "±1 ppm/°С"}
     colors = {"gold": [1, 0.84, 0, 1], "silver": [0.75, 0.75, 0.75, 1], "black": [0, 0, 0, 1],
               "brown": [0.4, 0.22, 0, 1], "red": [1, 0, 0, 1], "orange": [0.98, 0.45, 0.02, 1],
               "yellow": [1, 1, 0, 1], "green": [0.05, 0.64, 0.05, 1], "blue": [0.05, 0.54, 0.95, 1],
@@ -47,54 +48,67 @@ class ResistorScreen(Screen):
         pass
 
     def calculate_resistor(self, value):
-        if value == "4":
-            self.calculate_four_bands_resistor()
-        elif value == "5":
-            self.calculate_five_bands_resistor()
+
+        thermal = False
+
+        if "band5" in self.dynamic_vars.keys():
+            thermal = self.thermal[self.dynamic_vars["band5"].text]
+        if "band4" in self.dynamic_vars.keys():
+            tolerance = self.tolerance[self.dynamic_vars["band4"].text]
+        if len(self.ids["resistor_bands"].children) == 5 or len(self.ids["resistor_bands"].children) == 7:
+            multiplier = self.multiplier[self.dynamic_vars["band2"].text]
+            resistance = (self.nominal[self.dynamic_vars["band0"].text] * 10 + \
+                         self.nominal[self.dynamic_vars["band1"].text]) * multiplier
+
+            if "band3" in self.dynamic_vars.keys():
+                tolerance = self.tolerance[self.dynamic_vars["band3"].text]
+            else:
+                tolerance = "±20%"
+        else:
+            multiplier = self.multiplier[self.dynamic_vars["band3"].text]
+            resistance = (self.nominal[self.dynamic_vars["band0"].text] * 100 + \
+                         self.nominal[self.dynamic_vars["band1"].text] * 10 + \
+                          self.nominal[self.dynamic_vars["band1"].text]) * multiplier
+
+        if resistance < 1000:
+            self.ids.resistance.text = "{:g} Ом {}{}".format(resistance, tolerance, (", ТКС: " + thermal) if thermal else "")
+        elif resistance < 1000000:
+            self.ids.resistance.text = "{:g} кОм {}{}".format(resistance / 1000, tolerance, (", ТКС: " + thermal) if thermal else "")
+        else:
+            self.ids.resistance.text = "{:g} МОм {}{}".format(resistance / 1000000, tolerance, (", ТКС: " + thermal) if thermal else "")
 
     def build_resistor(self, value):
-        bands = {3: {1: list(self.nominal.keys())[1:], 2: list(self.nominal.keys()), 3: list(self.multiplier.keys()),
-                 4: {},
-                 5: {},
-                 6: {}
-                     }}
+        bands = {3: {0: list(self.nominal.keys())[1:], 1: list(self.nominal.keys()), 2: list(self.multiplier.keys())},
+                 4: {0: list(self.nominal.keys())[1:], 1: list(self.nominal.keys()), 2: list(self.multiplier.keys()),
+                     3: list(self.tolerance.keys())},
+                 5: {0: list(self.nominal.keys())[1:], 1: list(self.nominal.keys()), 2: list(self.nominal.keys()),
+                     3: list(self.multiplier.keys()), 4: list(self.tolerance.keys())},
+                 6: {0: list(self.nominal.keys())[1:], 1: list(self.nominal.keys()), 2: list(self.nominal.keys()),
+                     3: list(self.multiplier.keys()), 4: list(self.tolerance.keys()), 5: list(self.thermal.keys())},
+                 }
 
         self.ids.resistor_bands.clear_widgets()
+        self.dynamic_vars.clear()
 
-        for i in range(0, int(value)):
-            self.dynamic_vars["band{}".format(i)] = Spinner(text=list(self.nominal.keys())[1],
-                                                            values=list(self.nominal.keys())[1:])
-            self.ids["resistor_bands"].add_widget(self.dynamic_vars["band{}".format(i)])
-            if i < int(value) - 1:
-                self.dynamic_vars["gap{}".format(i)] = Widget(size_hint_x=0.2)
-                self.ids["resistor_bands"].add_widget(self.dynamic_vars["gap{}".format(i)])
+        for bands_qty in range(0, int(value)):
+            try:
+                self.dynamic_vars["band{}".format(bands_qty)] = Spinner(text=bands[int(value)][bands_qty][0],
+                                                                        values=list(bands[int(value)][bands_qty]),
+                                                                        background_color=self.colors[bands[int(value)][bands_qty][0]])
+                self.ids["resistor_bands"].add_widget(self.dynamic_vars["band{}".format(bands_qty)])
+                for key, band in self.dynamic_vars.items():
+                    if key.startswith("band"):
+                        band.bind(text=self.colourize)
+                if bands_qty < int(value) - 1:
+                    self.dynamic_vars["gap{}".format(bands_qty)] = Widget(size_hint_x=0.2)
+                    self.ids["resistor_bands"].add_widget(self.dynamic_vars["gap{}".format(bands_qty)])
+            except KeyError:
+                continue
 
-    def calculate_four_bands_resistor(self):
-        resistance = (self.nominal[self.ids.resistor_bands.children[6].text] * 10 +
-                      self.nominal[self.ids.resistor_bands.children[4].text]) * \
-                     self.multiplier[self.ids.resistor_bands.children[2].text]
-
-        tolerance = self.tolerance[self.ids.resistor_bands.children[0].text]
-        if resistance < 1000:
-            self.ids.resistance.text = "{:g} {}".format(resistance, tolerance)
-        elif resistance < 1000000:
-            self.ids.resistance.text = "{:g} кОм {}".format(resistance / 1000, tolerance)
-        else:
-            self.ids.resistance.text = "{:g} МОм {}".format(resistance / 1000000, tolerance)
-
-    def calculate_five_bands_resistor(self):
-        resistance = (self.nominal[self.ids.resistor_bands.children[8].text] * 100 + \
-                      self.nominal[self.ids.resistor_bands.children[6].text] * 10 + \
-                      self.nominal[self.ids.resistor_bands.children[4].text]) * \
-                     self.multiplier[self.ids.resistor_bands.children[2].text]
-
-        tolerance = self.tolerance[self.ids.resistor_bands.children[0].text]
-        if resistance < 1000:
-            self.ids.resistance.text = "{:g} {}".format(resistance, tolerance)
-        elif resistance < 1000000:
-            self.ids.resistance.text = "{:g} кОм {}".format(resistance / 1000, tolerance)
-        else:
-            self.ids.resistance.text = "{:g} МОм {}".format(resistance / 1000000, tolerance)
+    def colourize(self, *args):
+        for key, band in self.dynamic_vars.items():
+            if key.startswith("band"):
+                band.background_color = self.colors[band.text]
 
 
 class CapacitorScreen(Screen):

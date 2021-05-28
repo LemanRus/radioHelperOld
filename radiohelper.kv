@@ -105,22 +105,27 @@
         orientation: "vertical"
         Spinner:
             id: main_spinner
-            text: '4'
-            values: '3', '4', '5'
+            text: '3'
+            values: '3', '4', '5', '6'
             on_parent: root.build_resistor(self.text)
             on_text: root.build_resistor(self.text)
         BoxLayout:
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: "./img/resistor.png"
             id: resistor_grid
-            cols: 7
-            spacing: 20
+            size_hint_y: 1.5
             Label:
-                size_hint_x: 0.15
+                size_hint_x: 0.25
             BoxLayout:
                 id: resistor_bands
+                size_hint_y: 0.8
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
             Label:
-                size_hint_x: 0.15
+                size_hint_x: 0.25
 
-#TODO: обавить функционал кнопки, передать результат в надпись
         Button:
             text: "Рассчитать"
             font_size: app.config.getint("font", "Размер шрифта текста")
