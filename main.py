@@ -94,7 +94,9 @@ class ResistorScreen(Screen):
             try:
                 self.dynamic_vars["band{}".format(bands_qty)] = Spinner(text=bands[int(value)][bands_qty][0],
                                                                         values=list(bands[int(value)][bands_qty]),
-                                                                        background_color=self.colors[bands[int(value)][bands_qty][0]])
+                                                                        background_color=self.colors[bands[int(value)][bands_qty][0]],
+                                                                        color=[0, 0, 0, 1] if bands[int(value)][bands_qty][0] == "gold" else [1, 1, 1, 1],
+                                                                        background_normal="")
                 self.ids["resistor_bands"].add_widget(self.dynamic_vars["band{}".format(bands_qty)])
                 for key, band in self.dynamic_vars.items():
                     if key.startswith("band"):
@@ -109,7 +111,13 @@ class ResistorScreen(Screen):
         for key, band in self.dynamic_vars.items():
             if key.startswith("band"):
                 band.background_color = self.colors[band.text]
+                if band.text == "yellow" or band.text == "gold" or band.text == "white":
+                    band.color = [0, 0, 0, 1]
+                else:
+                    band.color = [1, 1, 1, 1]
 
+    def calculate_smd_resistor(self, marking):
+        print(marking)
 
 class CapacitorScreen(Screen):
     pass
