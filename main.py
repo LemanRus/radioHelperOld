@@ -134,7 +134,7 @@ class ResistorScreen(Screen):
         multiplier = "not assigned"
         markings = "empty"
         resistance = ""
-
+#TODO пофиксить расчёт с буквой r
         if marking in ["0", "00", "000", "0000"]:
             resistance = 0
         elif "R" in marking and marking[2] != "R":
