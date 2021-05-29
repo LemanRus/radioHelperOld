@@ -156,7 +156,7 @@ class ResistorScreen(Screen):
             else:
                 resistance = float(marking[:2]) * 10 ** (float(marking[2]))
         elif len(marking) == 4:
-            resistance = float(marking[:3]) * 10 ** (float(marking[2]))
+            resistance = float(marking[:3]) * 10 ** (float(marking[3]))
         else:
             self.ids.smd_resistance.text = "Неверный ввод"
 
