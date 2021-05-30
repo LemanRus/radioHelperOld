@@ -131,20 +131,17 @@ class ResistorScreen(Screen):
 
     def calculate_smd_resistor(self, marking):
         self.ids.smd_resistance.text = ""
-        multiplier = "not assigned"
-        markings = "empty"
         resistance = ""
-#TODO пофиксить расчёт с буквой r
         if marking in ["0", "00", "000", "0000"]:
             resistance = 0
         elif "R" in marking and marking[2] != "R":
-            if (len(marking) == 3 or len(marking)) == 4:
+            if len(marking) == 3 or len(marking) == 4:
                 markings = marking.split("R")
                 resistance = float("{}.{}".format(markings[0], markings[1]))
             else:
                 self.ids.smd_resistance.text = "Неверный ввод"
         elif "r" in marking:
-            if (len(marking) == 3 or len(marking)) == 4:
+            if len(marking) == 3 or len(marking) == 4:
                 markings = marking.split("r")
                 resistance = float("{}.{}".format(markings[0], markings[1]))
             else:
@@ -160,8 +157,10 @@ class ResistorScreen(Screen):
         else:
             self.ids.smd_resistance.text = "Неверный ввод"
 
-        if resistance:
-            if resistance < 1000:
+        if resistance != "":
+            if resistance == 0:
+                self.ids.smd_resistance.text = "0 Ом (перемычка)"
+            elif resistance < 1000:
                 self.ids.smd_resistance.text = "{:g} Ом".format(resistance)
             elif resistance < 1000000:
                 self.ids.smd_resistance.text = "{:g} кОм".format(resistance / 1000)
