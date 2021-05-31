@@ -25,7 +25,7 @@
         orientation: "vertical"
         Label:
             id: title1
-            text: "Здесь будет заголовок"
+            text: "Помощник радиолюбителя"
             font_size: app.config.getint("font", "header_size")
             size_hint_y: None
             height: 40
@@ -40,40 +40,40 @@
                 on_release: root.manager.current = "nominal"
             Button:
                 id: button2
-                text: "Button 2"
+                text: "Расчёт компонентов для схем"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "components"
         BoxLayout:
             Button:
                 id: button3
-                text: "Button 3"
+                text: "Распиновки"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "pins"
             Button:
                 id: button4
-                text: "Button 4"
+                text: "Типовые схемы"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "schemes"
         BoxLayout:
             Button:
                 id: button5
-                text: "Button 5"
+                text: "Обозначения компонентов на схемах"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "symbols"
             Button:
-                text: "Button 6"
+                text: "Полезные статьи"
                 id: button6
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "states"
         BoxLayout:
             Button:
                 id: button7
-                text: "Button 7"
+                text: "Помощь"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "help"
             Button:
                 id: button8
-                text: "Button 8"
+                text: "О программе"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "about"
         Button:
@@ -130,7 +130,7 @@
                 size_hint_x: 0.25
             BoxLayout:
                 id: resistor_bands
-                size_hint_y: 0.8
+                size_hint_y: 0.75
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
             Label:
                 size_hint_x: 0.25
@@ -141,7 +141,7 @@
             on_release: root.calculate_resistor(main_spinner.text)
         Label:
             id: resistance
-            text: "Здесь будет расчёт"
+            text: ""
             font_size: app.config.getint("font", "header_size")
         Label:
             text: "Для SMD резистора впишите в поле ниже маркировку с резистора: "
@@ -164,27 +164,39 @@
                 on_release: root.calculate_smd_resistor(smd_input.text)
         Label:
             id: smd_resistance
-        Button:
-            text: "Назад"
-            font_size: app.config.getint("font", "text_size")
-            on_release: root.manager.current = "nominal"
-        Button:
-            text: "На главный"
-            font_size: app.config.getint("font", "text_size")
-            on_release: root.manager.current = "main"
+        BoxLayout:
+            Button:
+                text: "Назад"
+                font_size: app.config.getint("font", "text_size")
+                on_release: root.manager.current = "nominal"
+            Button:
+                text: "На главный"
+                font_size: app.config.getint("font", "text_size")
+                on_release: root.manager.current = "main"
 
 <CapacitorScreen>:
     name: "capacitor"
     BoxLayout:
         orientation: "vertical"
-        Button:
-            text: "Назад"
-            font_size: app.config.getint("font", "text_size")
-            on_release: root.manager.current = "nominal"
-        Button:
-            text: "На главный"
-            font_size: app.config.getint("font", "text_size")
-            on_release: root.manager.current = "main"
+        Label:
+        BoxLayout:
+            TextInput:
+            Button:
+        Label:
+        Label:
+        BoxLayout:
+            TextInput:
+            Button:
+        Label:
+        BoxLayout:
+            Button:
+                text: "Назад"
+                font_size: app.config.getint("font", "text_size")
+                on_release: root.manager.current = "nominal"
+            Button:
+                text: "На главный"
+                font_size: app.config.getint("font", "text_size")
+                on_release: root.manager.current = "main"
 
 <ComponentsScreen>:
     name: "components"
