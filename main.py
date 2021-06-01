@@ -8,7 +8,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.settings import SettingsWithSidebar, SettingsWithNoMenu, SettingsWithSpinner, SettingsWithTabbedPanel
+from kivy.uix.settings import SettingsWithSidebar
 from kivy.config import Config
 from kivy.uix.spinner import Spinner
 from kivy.uix.widget import Widget
