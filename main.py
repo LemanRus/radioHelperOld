@@ -226,7 +226,6 @@ class CapacitorScreen(Screen):
                 self.ids.smd_capacity.text = "{:g} мкФ, {}В".format(capacity / 1000000, voltage)
 
 
-
 class ComponentsScreen(Screen):
     pass
 
