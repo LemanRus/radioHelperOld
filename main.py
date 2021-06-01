@@ -1,3 +1,5 @@
+import re
+
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.properties import NumericProperty, ObjectProperty, DictProperty
@@ -169,7 +171,60 @@ class ResistorScreen(Screen):
 
 
 class CapacitorScreen(Screen):
-    pass
+
+    decimal_point = {"μ": 1000000, "u": 1000000, "p": 1, "n": 1000, "мк": 1000000, "н": 1000, "п": 1}
+    voltage = {"G": 4, "J": 7, "A": 10, "C": 16, "D": 20, "E": 25, "V": 35}
+    smd_capacity = {"A": 1., "E": 1.5, "J": 2.2, "N": 3.3, "S": 4.7, "W": 6.8}
+
+    def calculate_capacitor(self, value):
+        capacity = ""
+        if value.isdigit():
+            if len(value) <= 2:
+                capacity = int(value)
+            else:
+                capacity = int(value[-2::-1][::-1]) * 10 ** int(value[-1])
+        elif "R" in value:
+            capacity = float("{}.{}".format(value.split("R")[0], value.split("R")[1]))
+        elif any(ext in value for ext in self.decimal_point.keys()):
+            intersection = "".join([inter for inter in self.decimal_point.keys() if (inter in value)])
+            capacity = float("{}.{}".format(value.split(intersection)[0], value.split(intersection)[1])) *\
+                self.decimal_point[intersection]
+        else:
+            self.ids.capacity.text = "Неверный ввод"
+
+        if capacity != "":
+            if capacity == 0:
+                self.ids.capacity.text = "0 мкФ (вероятно, перемычка)"
+            elif capacity < 1000:
+                self.ids.capacity.text = "{:g} пФ".format(capacity)
+            elif capacity < 1000000:
+                self.ids.capacity.text = "{:g} нФ".format(capacity / 1000)
+            else:
+                self.ids.capacity.text = "{:g} мкФ".format(capacity / 1000000)
+
+    def calculate_smd_capacitor(self, value):
+        capacity = ""
+        if len(value) == 3:
+            values = list(value)
+            if values[0] in self.voltage.keys():
+                voltage = self.voltage[values[0]]
+            if values[1] in self.smd_capacity.keys():
+                capacity = self.smd_capacity[values[1]] * 10 ** int(values[2])
+            else:
+                self.ids.smd_capacity.text = "Неверный ввод"
+        else:
+            self.ids.smd_capacity.text = "Неверный ввод"
+
+        if capacity != "":
+            if capacity == 0:
+                self.ids.smd_capacity.text = "0 мкФ (вероятно, перемычка)"
+            elif capacity < 1000:
+                self.ids.smd_capacity.text = "{:g} пФ, {}В".format(capacity, voltage)
+            elif capacity < 1000000:
+                self.ids.smd_capacity.text = "{:g} нФ, {}В".format(capacity / 1000, voltage)
+            else:
+                self.ids.smd_capacity.text = "{:g} мкФ, {}В".format(capacity / 1000000, voltage)
+
 
 
 class ComponentsScreen(Screen):

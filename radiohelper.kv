@@ -41,44 +41,68 @@
             Button:
                 id: button2
                 text: "Расчёт компонентов для схем"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "components"
         BoxLayout:
             Button:
                 id: button3
                 text: "Распиновки"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "pins"
             Button:
                 id: button4
                 text: "Типовые схемы"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "schemes"
         BoxLayout:
             Button:
                 id: button5
                 text: "Обозначения компонентов на схемах"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "symbols"
             Button:
                 text: "Полезные статьи"
                 id: button6
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "states"
         BoxLayout:
             Button:
                 id: button7
                 text: "Помощь"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "help"
             Button:
                 id: button8
                 text: "О программе"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 font_size: app.config.getint("font", "text_size")
                 on_release: root.manager.current = "about"
         Button:
             id: button_set
             text: "Настройки"
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             font_size: app.config.getint("font", "text_size")
             on_release: app.open_settings()
 
@@ -179,15 +203,49 @@
     BoxLayout:
         orientation: "vertical"
         Label:
+            text: "Введите маркировку керамического конденсатора сквозного монтажа:"
+            text_size: self.size
+            halign: "center"
+            valign: "center"
         BoxLayout:
             TextInput:
+                id: capacitor_input
+                font_size: app.config.getint("font", "header_size")
+                multiline: False
+                halign: "center"
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                on_text_validate: root.calculate_capacitor(self.text)
             Button:
+                text: "Рассчитать"
+                size_hint_x: 0.2
+                on_release: root.calculate_capacitor(capacitor_input.text)
         Label:
+            id: capacity
+            text_size: self.size
+            halign: "center"
+            valign: "center"
         Label:
+            text: "Введите маркировку SMD конденсатора:"
+            text_size: self.size
+            halign: "center"
+            valign: "center"
         BoxLayout:
             TextInput:
+                id: smd_capacitor_input
+                font_size: app.config.getint("font", "header_size")
+                multiline: False
+                halign: "center"
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                on_text_validate: root.calculate_smd_capacitor(self.text)
             Button:
+                text: "Рассчитать"
+                size_hint_x: 0.2
+                on_release: root.calculate_smd_capacitor(smd_capacitor_input.text)
         Label:
+            id: smd_capacity
+            text_size: self.size
+            halign: "center"
+            valign: "center"
         BoxLayout:
             Button:
                 text: "Назад"
