@@ -61,11 +61,13 @@ class AboutScreen(Screen):
 class RadioHelperApp(App):
 
     app_font_size = NumericProperty()
+    app_header_size = NumericProperty()
 
     def build(self):
         self.settings_cls = SettingsWithSidebar
         self.config.items("font")
-        self.app_font_size = self.config.getint("font", "header_size")
+        self.app_font_size = self.config.getint("font", "text_size")
+        self.app_header_size = self.config.getint("font", "header_size")
         self.use_kivy_settings = False
         return RadioHelperScreenManager()
 
@@ -83,7 +85,8 @@ class RadioHelperApp(App):
     def on_config_change(self, config, section, key, value):
         config.set(section=section, option=key, value=value)
         config.write()
-        self.app_font_size = self.config.getint("font", "header_size")
+        self.app_font_size = self.config.getint("font", "text_size")
+        self.app_header_size = self.config.getint("font", "header_size")
 
 
 if __name__ == '__main__':
