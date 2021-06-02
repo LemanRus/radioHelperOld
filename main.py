@@ -84,6 +84,7 @@ class RadioHelperApp(App):
         config.setdefaults("font", {
             "header_size": 30,
             "text_size": 30,
+            "button_size": 30
         })
 
     def build_settings(self, settings):
