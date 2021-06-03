@@ -33,7 +33,6 @@ class CapacitorScreen(Screen):
             else:
                 self.ids.capacity.text = "{:g} мкФ".format(capacity / 1000000)
 
-
     def calculate_smd_capacitor(self, value):
         capacity = ""
         if len(value) == 3:
