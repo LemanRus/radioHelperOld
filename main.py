@@ -71,6 +71,7 @@ class RadioHelperApp(App):
     app_header_size = NumericProperty()
     app_button_size = NumericProperty()
 
+
     def build(self):
         self.settings_cls = SettingsWithSidebar
         self.config.items("font")
