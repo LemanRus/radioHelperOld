@@ -10,7 +10,7 @@ from kivy.uix.dropdown import DropDown
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.settings import SettingsWithSidebar
 from kivy.config import Config
-from kivy.uix.spinner import Spinner, SpinnerOption
+from kivy.uix.spinner import Spinner
 from kivy.uix.widget import Widget
 
 from settingsjson import settings_json
@@ -58,18 +58,10 @@ class AboutScreen(Screen):
     pass
 
 
-class MySpinnerOption(SpinnerOption):
-    colors = {"gold": [1, 0.84, 0, 1], "silver": [0.75, 0.75, 0.75, 1], "black": [0, 0, 0, 1],
-              "brown": [0.4, 0.22, 0, 1], "red": [1, 0, 0, 1], "orange": [0.98, 0.45, 0.02, 1],
-              "yellow": [1, 1, 0, 1], "green": [0.05, 0.64, 0.05, 1], "blue": [0.05, 0.54, 0.95, 1],
-              "violet": [0.54, 0.14, 0.59, 1], "grey": [0.5, 0.5, 0.5, 1], "white": [1, 1, 1, 1]}
-
-
 class RadioHelperApp(App):
 
     app_font_size = NumericProperty()
     app_header_size = NumericProperty()
-    app_button_size = NumericProperty()
 
 
     def build(self):
@@ -77,7 +69,6 @@ class RadioHelperApp(App):
         self.config.items("font")
         self.app_font_size = self.config.getint("font", "text_size")
         self.app_header_size = self.config.getint("font", "header_size")
-        self.app_button_size = self.config.getint("font", "button_size")
         self.use_kivy_settings = False
         return RadioHelperScreenManager()
 
@@ -85,6 +76,7 @@ class RadioHelperApp(App):
         config.setdefaults("font", {
             "header_size": 30,
             "text_size": 30,
+            "button_size": 30
         })
 
     def build_settings(self, settings):
@@ -97,7 +89,6 @@ class RadioHelperApp(App):
         config.write()
         self.app_font_size = self.config.getint("font", "text_size")
         self.app_header_size = self.config.getint("font", "header_size")
-        self.app_button_size = self.config.getint("font", "button_size")
 
 
 if __name__ == '__main__':

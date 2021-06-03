@@ -87,8 +87,7 @@ class ResistorScreen(Screen):
                                                                         values=list(bands[int(value)][bands_qty]),
                                                                         background_color=self.colors[bands[int(value)][bands_qty][0]],
                                                                         color=[0, 0, 0, 1] if bands[int(value)][bands_qty][0] == "gold" else [1, 1, 1, 1],
-                                                                        background_normal="",
-                                                                        option_cls="MySpinnerOption")
+                                                                        background_normal="")
                 self.ids["resistor_bands"].add_widget(self.dynamic_vars["band{}".format(bands_qty)])
                 for key, band in self.dynamic_vars.items():
                     if key.startswith("band"):
