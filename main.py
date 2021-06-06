@@ -76,6 +76,7 @@ class RadioHelperApp(App):
         self.config.items("font")
         self.app_font_size = self.config.getint("font", "text_size")
         self.app_header_size = self.config.getint("font", "header_size")
+        self.app_button_size = self.config.getint("font", "button_size")
         self.use_kivy_settings = False
         return RadioHelperScreenManager()
 
