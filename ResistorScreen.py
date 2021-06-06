@@ -3,7 +3,6 @@ from kivy.uix.screenmanager import Screen
 from kivy.uix.spinner import Spinner
 from kivy.uix.widget import Widget
 
-
 class ResistorScreen(Screen):
     dynamic_vars = DictProperty({})
 
@@ -87,7 +86,9 @@ class ResistorScreen(Screen):
                                                                         values=list(bands[int(value)][bands_qty]),
                                                                         background_color=self.colors[bands[int(value)][bands_qty][0]],
                                                                         color=[0, 0, 0, 1] if bands[int(value)][bands_qty][0] == "gold" else [1, 1, 1, 1],
-                                                                        background_normal="")
+                                                                        background_normal="",
+                                                                        option_cls="MySpinnerOption",
+                                                                        dropdown_cls="ResistorDropDownOption")
                 self.ids["resistor_bands"].add_widget(self.dynamic_vars["band{}".format(bands_qty)])
                 for key, band in self.dynamic_vars.items():
                     if key.startswith("band"):
