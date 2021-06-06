@@ -108,12 +108,9 @@
 
 <MySpinnerOption>:
     font_size: app.app_button_size
+    color: [0, 0, 0, 1] if self.text in ["white", "yellow", "gold", "silver"] else [1, 1, 1, 1]
     background_color: self.colors[self.text] if self.text in self.colors.keys() else [0.5, 0.5, 0.5, 1]
     background_normal: ""
-
-<ResistorDropDownOption>:
-    font_size: app.app_button_size
-    background_color: [1, 1, 0, 1]
 
 <NominalsScreen>:
     name: "nominal"

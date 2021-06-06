@@ -65,10 +65,6 @@ class MySpinnerOption(SpinnerOption):
               "violet": [0.54, 0.14, 0.59, 1], "grey": [0.5, 0.5, 0.5, 1], "white": [1, 1, 1, 1]}
 
 
-class ResistorDropDownOption(DropDown):
-    pass
-
-
 class RadioHelperApp(App):
 
     app_font_size = NumericProperty()
@@ -102,6 +98,7 @@ class RadioHelperApp(App):
         self.app_font_size = self.config.getint("font", "text_size")
         self.app_header_size = self.config.getint("font", "header_size")
         self.app_button_size = self.config.getint("font", "button_size")
+        self.root.ids.resistor.build_resistor( self.root.ids.resistor.ids.main_spinner.text)
 
 
 if __name__ == '__main__':

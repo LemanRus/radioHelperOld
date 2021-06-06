@@ -1,7 +1,11 @@
+from kivy import Config
+from kivy.app import App
 from kivy.properties import DictProperty
 from kivy.uix.screenmanager import Screen
 from kivy.uix.spinner import Spinner
 from kivy.uix.widget import Widget
+
+Config.read("radiohelper.ini")
 
 class ResistorScreen(Screen):
     dynamic_vars = DictProperty({})
@@ -87,8 +91,8 @@ class ResistorScreen(Screen):
                                                                         background_color=self.colors[bands[int(value)][bands_qty][0]],
                                                                         color=[0, 0, 0, 1] if bands[int(value)][bands_qty][0] == "gold" else [1, 1, 1, 1],
                                                                         background_normal="",
-                                                                        option_cls="MySpinnerOption",
-                                                                        dropdown_cls="ResistorDropDownOption")
+                                                                        font_size=App.get_running_app().app_button_size,
+                                                                        option_cls="MySpinnerOption",)
                 self.ids["resistor_bands"].add_widget(self.dynamic_vars["band{}".format(bands_qty)])
                 for key, band in self.dynamic_vars.items():
                     if key.startswith("band"):
