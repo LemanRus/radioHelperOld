@@ -34,6 +34,30 @@ class ComponentsScreen(Screen):
     pass
 
 
+class ResistorLEDCalculateScreen(Screen):
+    pass
+
+
+class InductorCalculateScreen(Screen):
+    pass
+
+
+class ParallelResistorCalculateScreen(Screen):
+    pass
+
+
+class SerialCapacitorCalculateScreen(Screen):
+    pass
+
+
+class VoltageDividerCalculateScreen(Screen):
+    pass
+
+
+class LM317CalculateScreen(Screen):
+    pass
+
+
 class PinsScreen(Screen):
     pass
 
