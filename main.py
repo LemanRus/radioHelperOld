@@ -2,16 +2,14 @@ import ResistorScreen
 import CapacitorScreen
 
 from kivy.app import App
-from kivy.lang import Builder
-from kivy.properties import NumericProperty, ObjectProperty, DictProperty
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
-from kivy.uix.dropdown import DropDown
+
+from kivy.properties import NumericProperty
+
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.settings import SettingsWithSidebar
 from kivy.config import Config
 from kivy.uix.spinner import Spinner, SpinnerOption
-from kivy.uix.widget import Widget
+
 
 from settingsjson import settings_json
 
