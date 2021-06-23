@@ -2,16 +2,14 @@ import ResistorScreen
 import CapacitorScreen
 
 from kivy.app import App
-from kivy.lang import Builder
-from kivy.properties import NumericProperty, ObjectProperty, DictProperty
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
-from kivy.uix.dropdown import DropDown
+
+from kivy.properties import NumericProperty
+
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.settings import SettingsWithSidebar
 from kivy.config import Config
 from kivy.uix.spinner import Spinner, SpinnerOption
-from kivy.uix.widget import Widget
+
 
 from settingsjson import settings_json
 
@@ -31,6 +29,30 @@ class NominalsScreen(Screen):
 
 
 class ComponentsScreen(Screen):
+    pass
+
+
+class ResistorLEDCalculateScreen(Screen):
+    pass
+
+
+class InductorCalculateScreen(Screen):
+    pass
+
+
+class ParallelResistorCalculateScreen(Screen):
+    pass
+
+
+class SerialCapacitorCalculateScreen(Screen):
+    pass
+
+
+class VoltageDividerCalculateScreen(Screen):
+    pass
+
+
+class LM317CalculateScreen(Screen):
     pass
 
 
