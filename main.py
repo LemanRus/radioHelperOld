@@ -3,6 +3,8 @@ import CapacitorScreen
 
 from kivy.app import App
 
+from kivy.lang import Builder
+
 from kivy.properties import NumericProperty
 
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -14,6 +16,11 @@ from kivy.uix.spinner import Spinner, SpinnerOption
 from settingsjson import settings_json
 
 Config.read("radiohelper.ini")
+
+Builder.load_file("inductor_screen.kv")
+Builder.load_file("resistor_LED_screen.kv")
+Builder.load_file("main_screen.kv")
+Builder.load_file("nominals.kv")
 
 
 class RadioHelperScreenManager(ScreenManager):
