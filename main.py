@@ -21,6 +21,7 @@ Builder.load_file("inductor_screen.kv")
 Builder.load_file("resistor_LED_screen.kv")
 Builder.load_file("main_screen.kv")
 Builder.load_file("nominals.kv")
+Builder.load_file("parallel_res_screen.kv")
 
 
 class RadioHelperScreenManager(ScreenManager):
