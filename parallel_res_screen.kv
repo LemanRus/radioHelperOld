@@ -1,0 +1,49 @@
+<ParallelResistorCalculateScreen>:
+    name: "par_resistor_cal"
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            TextInput:
+            Label:
+                text: "Ом"
+        BoxLayout:
+            TextInput:
+            Label:
+                text: "Ом"
+        Button:
+            text: "Добавить резистор"
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 1,1,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: 0.05
+        BoxLayout:
+            Widget:
+            Label:
+                text: "Ом"
+            Widget:
+            Label:
+                text: "Ом"
+        BoxLayout:
+            Label:
+                text: "Результат:"
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: 1,1,1,1
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                size_hint_x: 0.1
+        BoxLayout:
+            Button:
+                text: "Назад"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "components"
+            Button:
+                text: "На главный"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "main"
