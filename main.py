@@ -1,5 +1,4 @@
-import ResistorScreen
-import CapacitorScreen
+import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen
 
 from kivy.app import App
 
@@ -22,6 +21,8 @@ Builder.load_file("resistor_LED_screen.kv")
 Builder.load_file("main_screen.kv")
 Builder.load_file("nominals.kv")
 Builder.load_file("parallel_res_screen.kv")
+Builder.load_file("serial_cap_screen.kv")
+Builder.load_file("components_screen.kv")
 
 
 class RadioHelperScreenManager(ScreenManager):
@@ -53,10 +54,6 @@ class ParallelResistorCalculateScreen(Screen):
 
 
 class SerialCapacitorCalculateScreen(Screen):
-    pass
-
-
-class VoltageDividerCalculateScreen(Screen):
     pass
 
 

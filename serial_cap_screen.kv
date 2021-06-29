@@ -1,0 +1,52 @@
+<SerialCapacitorCalculateScreen>:
+    name: "ser_capacitor_cal"
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            TextInput:
+            Label:
+                text: "пФ"
+        BoxLayout:
+            TextInput:
+            Label:
+                text: "пФ"
+        Button:
+            text: "Добавить конденсатор"
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 1,1,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: 0.05
+        BoxLayout:
+            Widget:
+            Label:
+                text: "пФ"
+            Widget:
+            Label:
+                text: "пФ"
+            Widget:
+            Label:
+                text: "пФ"
+        BoxLayout:
+            Label:
+                text: "Результат:"
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: 1,1,1,1
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                size_hint_x: 0.1
+        BoxLayout:
+            Button:
+                text: "Назад"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "components"
+            Button:
+                text: "На главный"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "main"

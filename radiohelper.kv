@@ -31,54 +31,6 @@
     HelpScreen:
     AboutScreen:
 
-
-<ComponentsScreen>:
-    name: "components"
-    BoxLayout:
-        orientation: "vertical"
-        Label:
-            text: "Расчёт компонентов"
-        Button:
-            text: "Расчёт резисторов для светодиодов"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "LED_cal"
-        Button:
-            text: "Расчёт катушки индуктивности"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "inductor_cal"
-        Button:
-            text: "Параллельное соединение резисторов"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "par_resistor_cal"
-        Button:
-            text: "Последовательное соединение конденсаторов"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "ser_capacitor_cal"
-        Button:
-            text: "Делитель напряжения"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "divider_cal"
-        Button:
-            text: "LM317/LM350/LM338 калькулятор"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "lm317_cal"
-        Button:
-            text: "На главный"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "main"
-
-<SerialCapacitorCalculateScreen>:
-    name: "ser_capacitor_cal"
-    BoxLayout:
-        Button:
-            text: "Назад"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "components"
-        Button:
-            text: "На главный"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "main"
-
 <VoltageDividerCalculateScreen>:
     name: "divider_cal"
     BoxLayout:
