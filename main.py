@@ -16,13 +16,16 @@ from settingsjson import settings_json
 
 Config.read("radiohelper.ini")
 
-Builder.load_file("inductor_screen.kv")
-Builder.load_file("resistor_LED_screen.kv")
-Builder.load_file("main_screen.kv")
-Builder.load_file("nominals.kv")
-Builder.load_file("parallel_res_screen.kv")
-Builder.load_file("serial_cap_screen.kv")
-Builder.load_file("components_screen.kv")
+#TODO: обход всех файлов в папке в цикле для загрузки - экономия строк кода
+Builder.load_file("kv/radiohelper.kv")
+Builder.load_file("kv/inductor_screen.kv")
+Builder.load_file("kv/resistor_LED_screen.kv")
+Builder.load_file("kv/main_screen.kv")
+Builder.load_file("kv/nominals.kv")
+Builder.load_file("kv/parallel_res_screen.kv")
+Builder.load_file("kv/serial_cap_screen.kv")
+Builder.load_file("kv/components_screen.kv")
+Builder.load_file("kv/divider.kv")
 
 
 class RadioHelperScreenManager(ScreenManager):
