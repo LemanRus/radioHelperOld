@@ -4,17 +4,22 @@
         orientation: "vertical"
         Spinner:
             id: main_spinner
-            text: '3'
+            size_hint_y: 0.1
+            text: 'Расчёт выходного напряжения'
             font_size: app.app_button_size
-            values: '3', '4', '5', '6'
-            on_parent: root.build_resistor(self.text)
-            on_text: root.build_resistor(self.text)
-    BoxLayout:
-        Button:
-            text: "Назад"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "components"
-        Button:
-            text: "На главный"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "main"
+            values: 'Расчёт выходного напряжения', 'Расчёт сопротивления'
+            on_parent: root.build_divider(self.text)
+            on_text: root.build_divider(self.text)
+        BoxLayout:
+            id: divider_box
+            orientation: "vertical"
+        BoxLayout:
+            size_hint_y: 0.1
+            Button:
+                text: "Назад"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "components"
+            Button:
+                text: "На главный"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "main"

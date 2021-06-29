@@ -9,7 +9,7 @@ from kivy.properties import NumericProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.settings import SettingsWithSidebar
 from kivy.config import Config
-from kivy.uix.spinner import Spinner, SpinnerOption
+from kivy.uix.spinner import SpinnerOption
 
 
 from settingsjson import settings_json
@@ -128,7 +128,7 @@ class RadioHelperApp(App):
         self.app_font_size = self.config.getint("font", "text_size")
         self.app_header_size = self.config.getint("font", "header_size")
         self.app_button_size = self.config.getint("font", "button_size")
-        self.root.ids.resistor.build_resistor( self.root.ids.resistor.ids.main_spinner.text)
+        self.root.ids.resistor.build_resistor(self.root.ids.resistor.ids.main_spinner.text)
 
 
 if __name__ == '__main__':
