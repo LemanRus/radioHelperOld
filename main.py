@@ -1,5 +1,4 @@
-import ResistorScreen
-import CapacitorScreen
+import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen
 
 from kivy.app import App
 
@@ -10,18 +9,23 @@ from kivy.properties import NumericProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.settings import SettingsWithSidebar
 from kivy.config import Config
-from kivy.uix.spinner import Spinner, SpinnerOption
+from kivy.uix.spinner import SpinnerOption
 
 
 from settingsjson import settings_json
 
 Config.read("radiohelper.ini")
 
-Builder.load_file("inductor_screen.kv")
-Builder.load_file("resistor_LED_screen.kv")
-Builder.load_file("main_screen.kv")
-Builder.load_file("nominals.kv")
-Builder.load_file("parallel_res_screen.kv")
+#TODO: обход всех файлов в папке в цикле для загрузки - экономия строк кода
+Builder.load_file("kv/radiohelper.kv")
+Builder.load_file("kv/inductor_screen.kv")
+Builder.load_file("kv/resistor_LED_screen.kv")
+Builder.load_file("kv/main_screen.kv")
+Builder.load_file("kv/nominals.kv")
+Builder.load_file("kv/parallel_res_screen.kv")
+Builder.load_file("kv/serial_cap_screen.kv")
+Builder.load_file("kv/components_screen.kv")
+Builder.load_file("kv/divider.kv")
 
 
 class RadioHelperScreenManager(ScreenManager):
@@ -53,10 +57,6 @@ class ParallelResistorCalculateScreen(Screen):
 
 
 class SerialCapacitorCalculateScreen(Screen):
-    pass
-
-
-class VoltageDividerCalculateScreen(Screen):
     pass
 
 
@@ -128,7 +128,7 @@ class RadioHelperApp(App):
         self.app_font_size = self.config.getint("font", "text_size")
         self.app_header_size = self.config.getint("font", "header_size")
         self.app_button_size = self.config.getint("font", "button_size")
-        self.root.ids.resistor.build_resistor( self.root.ids.resistor.ids.main_spinner.text)
+        self.root.ids.resistor.build_resistor(self.root.ids.resistor.ids.main_spinner.text)
 
 
 if __name__ == '__main__':
