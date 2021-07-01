@@ -1,0 +1,185 @@
+<LM317CalculateScreen>:
+    name: "lm317_cal"
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            text: "Расчёт выходного напряжения"
+            font_size: app.app_button_size
+            on_release: root.manager.current = "divider_voltage"
+        Button:
+            text: "Расчёт сопротивления"
+            font_size: app.app_button_size
+            on_release: root.manager.current = "divider_resistance"
+        Button:
+            text: "На главный"
+            font_size: app.app_button_size
+            on_release: root.manager.current = "main"
+
+<LM317Voltage>:
+    name: "LM317_voltage"
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            Label:
+                text: "Выходное напряжение:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "В"
+        BoxLayout:
+            Label:
+                text: "Сопротивление R1:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "Ом"
+        BoxLayout:
+            Label:
+                text: "Ток нагрузки:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "А"
+        BoxLayout:
+            Label:
+                text: "Входное напряжение:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "В"
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 1,1,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: 0.05
+        BoxLayout:
+            Label:
+                text: "Сопротивление R2:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "Ом"
+        BoxLayout:
+            Label:
+                text: "Стандартное сопротивление R2:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "Ом"
+        BoxLayout:
+            Label:
+                text: "Выходное напряжение:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "В"
+        BoxLayout:
+            Label:
+                text: "Рекомендуемый тип стабилизатора:"
+            Label:
+                size_hint_x: 0.1
+                text: "В"
+        BoxLayout:
+            Label:
+                text: "Рассеиваемая мощность:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "Вт"
+        BoxLayout:
+            Button:
+                text: "Назад"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "divider_cal"
+            Button:
+                text: "На главный"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "main"
+<LM317Current>:
+    name: "LM317_current"
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            Label:
+                text: "Выходной ток:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "А"
+        BoxLayout:
+            Label:
+                text: "Падение напряжения на нагрузке:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "В"
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 1,1,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: 0.05
+        BoxLayout:
+            Label:
+                text: "Сопротивление R1:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "Ом"
+        BoxLayout:
+            Label:
+                text: "Рассеиваемая мощность на резисторе R1:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "Вт"
+        BoxLayout:
+            Label:
+                text: "Выходной ток:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "А"
+        BoxLayout:
+            Label:
+                text: "Рассеиваемая мощность на микросхеме:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "Вт"
+        BoxLayout:
+            Label:
+                text: "Входное напряжение:"
+            TextInput:
+                size_hint_x: 0.1
+            Label:
+                size_hint_x: 0.1
+                text: "В"
+        BoxLayout:
+            Button:
+                text: "Назад"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "divider_cal"
+            Button:
+                text: "На главный"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "main"

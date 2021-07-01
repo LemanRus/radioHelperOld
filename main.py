@@ -26,6 +26,7 @@ Builder.load_file("kv/parallel_res_screen.kv")
 Builder.load_file("kv/serial_cap_screen.kv")
 Builder.load_file("kv/components_screen.kv")
 Builder.load_file("kv/divider.kv")
+Builder.load_file("kv/lm317.kv")
 
 
 class RadioHelperScreenManager(ScreenManager):
@@ -61,6 +62,14 @@ class SerialCapacitorCalculateScreen(Screen):
 
 
 class LM317CalculateScreen(Screen):
+    pass
+
+
+class LM317Voltage(Screen):
+    pass
+
+
+class LM317Current(Screen):
     pass
 
 
