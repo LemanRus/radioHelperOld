@@ -10,10 +10,15 @@
             text: "Расчёт сопротивления"
             font_size: app.app_button_size
             on_release: root.manager.current = "divider_resistance"
-        Button:
-            text: "На главный"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "main"
+        BoxLayout:
+            Button:
+                text: "Назад"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "components"
+            Button:
+                text: "На главный"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "main"
 
 <LM317Voltage>:
     name: "LM317_voltage"

@@ -1,5 +1,7 @@
 import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen
 
+import os
+
 from kivy.app import App
 
 from kivy.lang import Builder
@@ -16,17 +18,9 @@ from settingsjson import settings_json
 
 Config.read("radiohelper.ini")
 
-#TODO: обход всех файлов в папке в цикле для загрузки - экономия строк кода
-Builder.load_file("kv/radiohelper.kv")
-Builder.load_file("kv/inductor_screen.kv")
-Builder.load_file("kv/resistor_LED_screen.kv")
-Builder.load_file("kv/main_screen.kv")
-Builder.load_file("kv/nominals.kv")
-Builder.load_file("kv/parallel_res_screen.kv")
-Builder.load_file("kv/serial_cap_screen.kv")
-Builder.load_file("kv/components_screen.kv")
-Builder.load_file("kv/divider.kv")
-Builder.load_file("kv/lm317.kv")
+kv = os.listdir("kv")
+for kv_file in kv:
+    Builder.load_file("kv/" + kv_file)
 
 
 class RadioHelperScreenManager(ScreenManager):
