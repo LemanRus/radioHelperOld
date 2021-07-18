@@ -4,7 +4,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import Screen
 
-
+#TODO: добавить функционал расчёта
 class VoltageDividerCalculateScreen(Screen):
 
     dynamic_vars = DictProperty({})

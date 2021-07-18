@@ -40,30 +40,37 @@ class ComponentsScreen(Screen):
 
 
 class ResistorLEDCalculateScreen(Screen):
+    # TODO: добавить функционал расчёта
     pass
 
 
 class InductorCalculateScreen(Screen):
+    # TODO: добавить функционал расчёта
     pass
 
 
 class ParallelResistorCalculateScreen(Screen):
+    # TODO: добавить функционал расчёта
     pass
 
 
 class SerialCapacitorCalculateScreen(Screen):
+    # TODO: добавить функционал расчёта
     pass
 
 
 class LM317CalculateScreen(Screen):
+    # TODO: добавить функционал расчёта
     pass
 
 
 class LM317Voltage(Screen):
+    # TODO: добавить функционал расчёта
     pass
 
 
 class LM317Current(Screen):
+    # TODO: добавить функционал расчёта
     pass
 
 

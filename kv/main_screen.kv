@@ -3,8 +3,7 @@
     BoxLayout:
         orientation: "vertical"
         Label:
-#TODO: переименовать заголовок
-            id: title1
+            id: app_title
             text: "Помощник радиолюбителя"
             font_size: app.app_header_size
             size_hint_y: None
@@ -18,9 +17,8 @@
                 valign: "center"
                 font_size: app.app_button_size
                 on_release: root.manager.current = "nominal"
-#TODO: переименовать кнопки, дать более удобные имена
             Button:
-                id: button2
+                id: components_button
                 text: "Расчёт компонентов для схем"
                 text_size: self.size
                 halign: "center"
@@ -29,7 +27,7 @@
                 on_release: root.manager.current = "components"
         BoxLayout:
             Button:
-                id: button3
+                id: pins_button
                 text: "Распиновки"
                 text_size: self.size
                 halign: "center"
@@ -37,7 +35,7 @@
                 font_size: app.app_button_size
                 on_release: root.manager.current = "pins"
             Button:
-                id: button4
+                id: schemes_button
                 text: "Типовые схемы"
                 text_size: self.size
                 halign: "center"
@@ -46,7 +44,7 @@
                 on_release: root.manager.current = "schemes"
         BoxLayout:
             Button:
-                id: button5
+                id: symbols_button
                 text: "Обозначения компонентов на схемах"
                 text_size: self.size
                 halign: "center"
@@ -55,7 +53,7 @@
                 on_release: root.manager.current = "symbols"
             Button:
                 text: "Полезные статьи"
-                id: button6
+                id: states_button
                 text_size: self.size
                 halign: "center"
                 valign: "center"
@@ -63,7 +61,7 @@
                 on_release: root.manager.current = "states"
         BoxLayout:
             Button:
-                id: button7
+                id: help_button
                 text: "Помощь"
                 text_size: self.size
                 halign: "center"
@@ -71,7 +69,7 @@
                 font_size: app.app_button_size
                 on_release: root.manager.current = "help"
             Button:
-                id: button8
+                id: about_button
                 text: "О программе"
                 text_size: self.size
                 halign: "center"
