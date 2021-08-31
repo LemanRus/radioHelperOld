@@ -52,7 +52,7 @@ class ResistorLEDCalculateScreen(Screen):
         except ValueError:
             led_resistance = "Неверный ввод!"
         return str(led_resistance)
-    #TODO: прописать в функцию форматирование для возврата строки с единицей "Ом", "кОм" и т. д., округлить до сотых
+# TODO: прописать в функцию форматирование для возврата строки с единицей "Ом", "кОм" и т. д., округлить до сотых
 
 
 
@@ -87,7 +87,7 @@ class LM317Current(Screen):
 
 
 class PinsScreen(Screen):
-    #TODO: просто заполнитель, чтобы сделать коммит
+    # TODO: просто заполнитель, чтобы сделать коммит
     pass
 
 
