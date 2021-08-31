@@ -13,6 +13,8 @@
             Label:
                 size_hint_x: 0.1
                 text: "В"
+            Widget:
+                size_hint_x: 0.48
         BoxLayout:
             size_hint_y: 2
             BoxLayout:
@@ -23,7 +25,6 @@
                     TextInput:
                         id: led_vol_input
                         size_hint_x: 0.1
-
                     Label:
                         size_hint_x: 0.1
                         text: "В"
@@ -53,9 +54,11 @@
             Label:
                 size_hint_x: 0.1
                 text: "шт"
+            Widget:
+                size_hint_x: 0.48
         Button:
             text: "Рассчитать!"
-            on_release: led_result.text = root.led_calculate(led_vol.text, led_vol_input.text, led_cur_input.text, led_quantity.text)
+            on_release: root.led_calculate(led_vol.text, led_vol_input.text, led_cur_input.text, led_quantity.text)
         Label:
             canvas.before:
                 Color:
@@ -63,66 +66,36 @@
                 Rectangle:
                     size: self.size
                     pos: self.pos
-            size_hint_y: 0.05
+            size_hint_y: 0.03
         Label:
             text: "Результат:"
         BoxLayout:
             Label:
                 text: "Расчётное сопротивление:"
             Label:
-                canvas.before:
-                    Color:
-                        rgba: 1,1,1,1
-                    Rectangle:
-                        size: self.size
-                        pos: self.pos
                 id: led_result
-                size_hint_x: 0.1
-            Label:
-                size_hint_x: 0.1
-                text: "Ом"
+                size_hint_x: 0.3
+                text_size: self.size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Стандартное значение:"
             Label:
-                size_hint_x: 0.1
-                canvas.before:
-                    Color:
-                        rgba: 1,1,1,1
-                    Rectangle:
-                        size: self.size
-                        pos: self.pos
-            Label:
-                size_hint_x: 0.1
-                text: "Ом"
+                id: led_e24
+                size_hint_x: 0.3
         BoxLayout:
             Label:
                 text: "Рассеиваемая на резисторе мощность:"
             Label:
-                canvas.before:
-                    Color:
-                        rgba: 1,1,1,1
-                    Rectangle:
-                        size: self.size
-                        pos: self.pos
-                size_hint_x: 0.1
-            Label:
-                size_hint_x: 0.1
-                text: "Вт"
+                id: led_res_power
+                size_hint_x: 0.3
         BoxLayout:
             Label:
                 text: "Потребляемый ток:"
             Label:
-                canvas.before:
-                    Color:
-                        rgba: 1,1,1,1
-                    Rectangle:
-                        size: self.size
-                        pos: self.pos
-                size_hint_x: 0.1
-            Label:
-                size_hint_x: 0.1
-                text: "мА"
+                id: led_cur
+                size_hint_x: 0.3
         BoxLayout:
             Button:
                 text: "Назад"

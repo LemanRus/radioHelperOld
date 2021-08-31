@@ -1,4 +1,4 @@
-import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen
+import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen, ResistorLEDCalculateScreen
 
 import os
 
@@ -37,22 +37,6 @@ class NominalsScreen(Screen):
 
 class ComponentsScreen(Screen):
     pass
-
-
-class ResistorLEDCalculateScreen(Screen):
-    diodes = {'3 мм зелёный': (1, 10), '3 мм красный': (2, 20), '3 мм жёлтый': (3, 30), '3 мм синий': (4, 40),
-              '5 мм зелёный': (15, 150), '5 мм красный': (25, 250), '5 мм жёлтый': (35, 350), '5 мм синий': (45, 450),
-              '5 мм белый': (17, 170), '10 мм синий': (27, 270), '10 мм белый': (37, 370), 'Cree MX-3': (47, 470)}
-
-    def led_calculate(self, vol, led_vol, led_cur, led_quant):
-        try:
-            led_resistance = (int(vol)-(int(led_vol)*int(led_quant)))/int(led_cur)
-            if led_resistance < 0:
-                led_resistance = "Слишком малое напряжение источника питания!"
-        except ValueError:
-            led_resistance = "Неверный ввод!"
-        return str(led_resistance)
-# TODO: прописать в функцию форматирование для возврата строки с единицей "Ом", "кОм" и т. д., округлить до сотых
 
 
 
