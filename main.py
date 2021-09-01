@@ -1,9 +1,9 @@
-import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen, ResistorLEDCalculateScreen
+import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen, ResistorLEDCalculateScreen, InductorCalculateScreen
 
 import os
 
 from kivy.app import App
-
+50
 from kivy.lang import Builder
 
 from kivy.properties import NumericProperty
@@ -36,12 +36,6 @@ class NominalsScreen(Screen):
 
 
 class ComponentsScreen(Screen):
-    pass
-
-
-
-class InductorCalculateScreen(Screen):
-    # TODO: добавить функционал расчёта
     pass
 
 

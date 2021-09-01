@@ -8,13 +8,13 @@
                 text: "Напряжение источника питания:"
             TextInput:
                 id: led_vol
-                size_hint_x: 0.1
+                size_hint_x: 0.2
                 text: '5'
             Label:
                 size_hint_x: 0.1
                 text: "В"
             Widget:
-                size_hint_x: 0.48
+                size_hint_x: 0.52
         BoxLayout:
             size_hint_y: 2
             BoxLayout:
@@ -24,7 +24,7 @@
                         text: "Напряжение питания светодиода:"
                     TextInput:
                         id: led_vol_input
-                        size_hint_x: 0.1
+                        size_hint_x: 0.2
                     Label:
                         size_hint_x: 0.1
                         text: "В"
@@ -33,7 +33,7 @@
                         text: "Ток светодиода:"
                     TextInput:
                         id: led_cur_input
-                        size_hint_x: 0.1
+                        size_hint_x: 0.2
                     Label:
                         size_hint_x: 0.1
                         text: "мА"
@@ -49,13 +49,13 @@
                 text: "Количество светодиодов:"
             TextInput:
                 id: led_quantity
-                size_hint_x: 0.1
+                size_hint_x: 0.2
                 text: '1'
             Label:
                 size_hint_x: 0.1
                 text: "шт"
             Widget:
-                size_hint_x: 0.48
+                size_hint_x: 0.52
         Button:
             text: "Рассчитать!"
             on_release: root.led_calculate(led_vol.text, led_vol_input.text, led_cur_input.text, led_quantity.text)
