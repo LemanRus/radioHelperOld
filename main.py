@@ -3,7 +3,7 @@ import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen, ResistorL
 import os
 
 from kivy.app import App
-50
+
 from kivy.lang import Builder
 
 from kivy.properties import NumericProperty
