@@ -6,13 +6,4 @@ from kivy.uix.screenmanager import Screen
 
 #TODO: добавить функционал расчёта
 class VoltageDividerCalculateScreen(Screen):
-
-    dynamic_vars = DictProperty({})
-
-
-class DividerVoltageScreen(Screen):
-    pass
-
-
-class DividerResistanceScreen(Screen):
     pass

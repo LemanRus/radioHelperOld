@@ -5,11 +5,11 @@
         Button:
             text: "Расчёт выходного напряжения"
             font_size: app.app_button_size
-            on_release: root.manager.current = "divider_voltage"
+            on_release: root.manager.current = "LM317_voltage"
         Button:
             text: "Расчёт сопротивления"
             font_size: app.app_button_size
-            on_release: root.manager.current = "divider_resistance"
+            on_release: root.manager.current = "LM317_current"
         BoxLayout:
             Button:
                 text: "Назад"
@@ -106,7 +106,7 @@
             Button:
                 text: "Назад"
                 font_size: app.app_button_size
-                on_release: root.manager.current = "divider_cal"
+                on_release: root.manager.current = "lm317_cal"
             Button:
                 text: "На главный"
                 font_size: app.app_button_size
@@ -183,7 +183,7 @@
             Button:
                 text: "Назад"
                 font_size: app.app_button_size
-                on_release: root.manager.current = "divider_cal"
+                on_release: root.manager.current = "lm317_cal"
             Button:
                 text: "На главный"
                 font_size: app.app_button_size

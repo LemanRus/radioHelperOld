@@ -2,28 +2,6 @@
     name: "divider_cal"
     BoxLayout:
         orientation: "vertical"
-        Button:
-            text: "Расчёт выходного напряжения"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "divider_voltage"
-        Button:
-            text: "Расчёт сопротивления"
-            font_size: app.app_button_size
-            on_release: root.manager.current = "divider_resistance"
-        BoxLayout:
-            Button:
-                text: "Назад"
-                font_size: app.app_button_size
-                on_release: root.manager.current = "components"
-            Button:
-                text: "На главный"
-                font_size: app.app_button_size
-                on_release: root.manager.current = "main"
-
-<DividerVoltageScreen>:
-    name: "divider_voltage"
-    BoxLayout:
-        orientation: "vertical"
         BoxLayout:
             Label:
                 text: "Напряжение источника питания:"
@@ -69,19 +47,6 @@
                 Widget:
                 Label:
                     text: "Ом"
-        BoxLayout:
-            Button:
-                text: "Назад"
-                font_size: app.app_button_size
-                on_release: root.manager.current = "divider_cal"
-            Button:
-                text: "На главный"
-                font_size: app.app_button_size
-                on_release: root.manager.current = "main"
-<DividerResistanceScreen>:
-    name: "divider_resistance"
-    BoxLayout:
-        orientation: "vertical"
         BoxLayout:
             Label:
                 text: "Напряжение источника питания:"
@@ -131,7 +96,7 @@
             Button:
                 text: "Назад"
                 font_size: app.app_button_size
-                on_release: root.manager.current = "divider_cal"
+                on_release: root.manager.current = "components"
             Button:
                 text: "На главный"
                 font_size: app.app_button_size
