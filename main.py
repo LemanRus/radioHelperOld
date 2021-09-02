@@ -65,7 +65,6 @@ class LM317Current(Screen):
 
 
 class PinsScreen(Screen):
-    # TODO: просто заполнитель, чтобы сделать коммит
     pass
 
 
