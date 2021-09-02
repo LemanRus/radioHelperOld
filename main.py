@@ -102,6 +102,7 @@ class RadioHelperApp(App):
     app_button_size = NumericProperty()
 
     def build(self):
+        self.icon = "img/icon.png"
         self.settings_cls = SettingsWithSidebar
         self.config.items("font")
         self.app_font_size = self.config.getint("font", "text_size")
