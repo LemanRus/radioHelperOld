@@ -6,6 +6,7 @@
             Label:
                 text: "Напряжение источника питания:"
             TextInput:
+                id: v_in
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
@@ -14,6 +15,7 @@
             Label:
                 text: "Сопротивление R1:"
             TextInput:
+                id: r1
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
@@ -22,10 +24,39 @@
             Label:
                 text: "Сопротивление R2:"
             TextInput:
+                id: r2
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
                 text: "Ом"
+        Button:
+            text: "Рассчитать!"
+            on_release: root.divider_calculate_vout(v_in.text, r1.text, r2.text)
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 1,1,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: 0.05
+        Label:
+            text: "Результат:"
+        BoxLayout:
+            Label:
+                text: "Выходное напряжение:"
+            Label:
+                id: v_out
+            Label:
+                text: "В"
+                size_hint_x: 0.1
+        BoxLayout:
+            Label:
+                text: "Коэффициент делителя"
+            Label:
+                id: divider_rate
+            Label:
+                size_hint_x: 0.1
         Label:
             canvas.before:
                 Color:
@@ -35,22 +66,10 @@
                     pos: self.pos
             size_hint_y: 0.05
         BoxLayout:
-            orientation: "vertical"
-            BoxLayout:
-                Widget:
-                Label:
-                    text: "Ом"
-            BoxLayout:
-                Label:
-                    text: "В"
-            BoxLayout:
-                Widget:
-                Label:
-                    text: "Ом"
-        BoxLayout:
             Label:
                 text: "Напряжение источника питания:"
             TextInput:
+                id: v_in_r
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
@@ -59,6 +78,7 @@
             Label:
                 text: "Выходное напряжение:"
             TextInput:
+                id: v_out_r
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
@@ -67,10 +87,14 @@
             Label:
                 text: "Сопротивление R1:"
             TextInput:
+                id: r1_input
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
                 text: "Ом"
+        Button:
+            text: "Рассчитать!"
+            on_release: root.divider_calculate_r(v_in_r.text, v_out_r.text, r1_input.text)
         Label:
             canvas.before:
                 Color:
@@ -79,19 +103,31 @@
                     size: self.size
                     pos: self.pos
             size_hint_y: 0.05
+        Label:
+            text: "Результат:"
         BoxLayout:
-            orientation: "vertical"
-            BoxLayout:
-                Widget:
-                Label:
-                    text: "Ом"
-            BoxLayout:
-                Label:
-                    text: "В"
-            BoxLayout:
-                Widget:
-                Label:
-                    text: "Ом"
+            Label:
+                text: "Сопротивление R2"
+            Label:
+                id: r2_calculated
+        BoxLayout:
+            Label:
+                text: "Коэффициент делителя"
+            Label:
+                id: divider_rate_r
+        BoxLayout:
+            Label:
+                text: "Резистор стандартного ряда"
+            Label:
+                id: r2_e24
+        BoxLayout:
+            Label:
+                text: "Выходное напряжение с резистором из стандартного ряда"
+                halign: "center"
+                valign: "center"
+                text_size: self.size
+            Label:
+                id: vout_e24
         BoxLayout:
             Button:
                 text: "Назад"

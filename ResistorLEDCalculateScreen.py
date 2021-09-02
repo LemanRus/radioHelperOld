@@ -7,7 +7,7 @@ class ResistorLEDCalculateScreen(Screen):
               '5 мм белый': (3.6, 75), '10 мм синий': (3.2, 20), '10 мм белый': (3.2, 20), 'Cree MX-3': (3.7, 350)}
 
     E6 = [1.0, 1.1, 1.2, 1.3, 1.5, 1.6, 1.8, 2.0, 2.2, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 5.6, 6.2, 6.8,
-          7.5, 8.2, 9.1]
+          7.5, 8.2, 9.1]  #todo e24!!!!!!!!!!
 
     def led_calculate(self, vol, led_vol, led_cur, led_quant):
         result = ''
@@ -30,7 +30,7 @@ class ResistorLEDCalculateScreen(Screen):
                 else:
                     result = "{:g} МОм".format(led_resistance / 1000000)
                 self.ids.led_result.text = result
-                if led_resistance >= 0:
+                if led_resistance >= 0: # todo нужен ли здесь if?
                     e6_test = led_resistance
                     while e6_test > 10:
                         e6_test /= 10
@@ -47,10 +47,10 @@ class ResistorLEDCalculateScreen(Screen):
                             break
                         counter += 1
                         interact /= 10
-                    e6_result = e6 * 10 ** (counter + 1)
+                    e6_result = e6 * 10 ** (counter + 1) # todo оптимизировать код как в делителе напряжения
                     if e6_result < led_resistance:
                         e6_result = self.E6[result_index + 1] * 10 ** (counter + 1)
-                    self.ids.led_e24.text = str(e6_result)
+                    self.ids.led_e24.text = str(e6_result) # todo нужна ли эта строка?
                 if e6_result == 0:
                     self.ids.led_e24.text = "0 Ом (перемычка)"
                 elif e6_result < 1000:

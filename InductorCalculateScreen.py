@@ -27,7 +27,6 @@ class InductorCalculateScreen(Screen):
             self.ids.inductor_turns.text = "Неверный ввод!"
             self.ids.inductor_turns_int.text = "Неверный ввод!"
 
-
     def inductor_calculate_henrys(self, turns, diameter, length):
         try:
 
