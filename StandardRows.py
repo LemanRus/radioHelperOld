@@ -1,7 +1,7 @@
 class StandardRows:
     E24 = (1.0, 1.1, 1.2, 1.3, 1.5, 1.6, 1.8, 2.0, 2.2, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 5.6, 6.2, 6.8,
            7.5, 8.2, 9.1)
-# TODO если передаётся 145, то результат 16
+
     @staticmethod
     def calculate_standard_resistor(resistance, go_up=bool):
         res = resistance
@@ -12,7 +12,7 @@ class StandardRows:
         interact = resistance / StandardRows.E24[result_index]
         power = 0
         while True:
-            if interact < 10:
+            if interact < 9:
                 break
             power += 1
             interact /= 10

@@ -44,7 +44,7 @@ class VoltageDividerCalculateScreen(Screen):
 
                 self.ids.divider_rate_r.text = "{:g}".format(rate)
 
-                e6_result = StandardRows.calculate_standard_resistor(r2, True)
+                e6_result = StandardRows.calculate_standard_resistor(r2, False)
                 if e6_result == 0:
                     self.ids.r2_e24.text = "0 Ом (перемычка)"
                 elif e6_result < 1000:
