@@ -28,6 +28,7 @@
             Label:
                 text: "Выходное напряжение:"
             TextInput:
+                id: lm317_vout_input
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
@@ -36,6 +37,7 @@
             Label:
                 text: "Сопротивление R1:"
             TextInput:
+                id: lm317_r1_input
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
@@ -44,6 +46,7 @@
             Label:
                 text: "Ток нагрузки:"
             TextInput:
+                id: lm317_iout_input
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
@@ -52,13 +55,14 @@
             Label:
                 text: "Входное напряжение:"
             TextInput:
+                id: lm317_vin_input
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
                 text: "В"
         Button:
             text: "Рассчитать!"
-            on_release: root.calulate_lm317_voltage()
+            on_release: root.calculate_lm317_voltage(lm317_vout_input.text, lm317_r1_input.text, lm317_iout_input.text, lm317_vin_input.text)
         Label:
             canvas.before:
                 Color:
@@ -71,26 +75,32 @@
             Label:
                 text: "Сопротивление R2:"
             Label:
+                id: lm317_r2_output
                 size_hint_x: 0.1
         BoxLayout:
             Label:
                 text: "Стандартное сопротивление R2:"
             Label:
+                id: lm317_r2_corrected_output
                 size_hint_x: 0.1
         BoxLayout:
             Label:
                 text: "Выходное напряжение:"
             Label:
+                id: lm317_vout_output
                 size_hint_x: 0.1
         BoxLayout:
             Label:
+
                 text: "Рекомендуемый тип стабилизатора:"
             Label:
+                id: lm317_recommend_output
                 size_hint_x: 0.1
         BoxLayout:
             Label:
                 text: "Рассеиваемая мощность:"
             Label:
+                id: lm317_power_output
                 size_hint_x: 0.1
         BoxLayout:
             Button:
