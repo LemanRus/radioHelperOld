@@ -91,7 +91,6 @@
                 size_hint_x: 0.1
         BoxLayout:
             Label:
-
                 text: "Рекомендуемый тип стабилизатора:"
             Label:
                 id: lm317_recommend_output
@@ -111,6 +110,7 @@
                 text: "На главный"
                 font_size: app.app_button_size
                 on_release: root.manager.current = "main"
+
 <LM317Current>:
     name: "LM317_current"
     BoxLayout:
@@ -119,6 +119,7 @@
             Label:
                 text: "Выходной ток:"
             TextInput:
+                id: lm317_iout_input_cur
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
@@ -127,12 +128,14 @@
             Label:
                 text: "Падение напряжения на нагрузке:"
             TextInput:
+                id: lm317_vout_input_cur
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
                 text: "В"
         Button:
             text: "Рассчитать!"
+            on_release: root.calculate_lm317_current(lm317_iout_input_cur.text, lm317_vout_input_cur.text)
         Label:
             canvas.before:
                 Color:
@@ -145,26 +148,31 @@
             Label:
                 text: "Сопротивление R1:"
             Label:
+                id: lm317_r1_output_cur
                 size_hint_x: 0.1
         BoxLayout:
             Label:
-                text: "Рассеиваемая мощность на резисторе R1:"
+                text: "Мощность:"
             Label:
+                id: lm317_r1_power_output_cur
                 size_hint_x: 0.1
         BoxLayout:
             Label:
                 text: "Выходной ток:"
             Label:
+                id: lm317_iout_output_cur
                 size_hint_x: 0.1
         BoxLayout:
             Label:
-                text: "Рассеиваемая мощность на микросхеме:"
+                text: "Рекомендуемый тип стабилизатора:"
             Label:
+                id: lm317_recommend_output_cur
                 size_hint_x: 0.1
         BoxLayout:
             Label:
-                text: "Входное напряжение:"
+                text: "Входное напряжение, не менее:"
             Label:
+                id: lm317_vin_output_cur
                 size_hint_x: 0.1
         BoxLayout:
             Button:
