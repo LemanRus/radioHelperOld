@@ -152,15 +152,27 @@
                 size_hint_x: 0.1
         BoxLayout:
             Label:
+                text: "Сопротивление R1 из стандартного ряда:"
+            Label:
+                id: lm317_r1_corrected_output_cur
+                size_hint_x: 0.1
+        BoxLayout:
+            Label:
                 text: "Мощность:"
             Label:
                 id: lm317_r1_power_output_cur
                 size_hint_x: 0.1
         BoxLayout:
             Label:
-                text: "Выходной ток:"
+                text: "Мощность с резистором из стандартного ряда:"
             Label:
-                id: lm317_iout_output_cur
+                id: lm317_r1_power_corrected_output_cur
+                size_hint_x: 0.1
+        BoxLayout:
+            Label:
+                text: "Выходной ток с резистором из стандартного ряда:"
+            Label:
+                id: lm317_iout_corrected_output_cur
                 size_hint_x: 0.1
         BoxLayout:
             Label:
