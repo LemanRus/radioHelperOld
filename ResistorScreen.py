@@ -80,7 +80,6 @@ class ResistorScreen(Screen):
                      3: list(self.multiplier.keys()), 4: list(self.tolerance.keys()), 5: list(self.thermal.keys())},
                  }
 
-
         self.ids.resistor_bands.clear_widgets()
         self.dynamic_vars.clear()
 

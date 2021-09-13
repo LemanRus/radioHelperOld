@@ -1,17 +1,22 @@
 <SerialCapacitorCalculateScreen>:
     name: "ser_capacitor_cal"
+    on_pre_enter: self.reset()
     BoxLayout:
         orientation: "vertical"
         BoxLayout:
-            TextInput:
-            Label:
-                text: "пФ"
+            id: ser_cap_box
+            orientation: "vertical"
+            size_hint_y: 5
         BoxLayout:
-            TextInput:
-            Label:
-                text: "пФ"
+            Button:
+                text: "Добавить конденсатор"
+                on_release: root.add_capacitor()
+            Button:
+                text: "Очистить"
+                on_release: root.reset()
         Button:
-            text: "Добавить конденсатор"
+            text: "Рассчитать!"
+            on_release: root.ser_cap_calculate()
         Label:
             canvas.before:
                 Color:
@@ -21,26 +26,10 @@
                     pos: self.pos
             size_hint_y: 0.05
         BoxLayout:
-            Widget:
-            Label:
-                text: "пФ"
-            Widget:
-            Label:
-                text: "пФ"
-            Widget:
-            Label:
-                text: "пФ"
-        BoxLayout:
             Label:
                 text: "Результат:"
             Label:
-                canvas.before:
-                    Color:
-                        rgba: 1,1,1,1
-                    Rectangle:
-                        size: self.size
-                        pos: self.pos
-                size_hint_x: 0.1
+                id: ser_cap_output
         BoxLayout:
             Button:
                 text: "Назад"

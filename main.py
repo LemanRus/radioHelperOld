@@ -1,5 +1,6 @@
 import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen, ResistorLEDCalculateScreen, \
-    InductorCalculateScreen, LM317Current, LM317Voltage
+    InductorCalculateScreen, LM317Current, LM317Voltage, ParallelResistorCalculateScreen, \
+    SerialCapacitorCalculateScreen
 
 import os
 
@@ -40,18 +41,7 @@ class ComponentsScreen(Screen):
     pass
 
 
-class ParallelResistorCalculateScreen(Screen):
-    # TODO: добавить функционал расчёта
-    pass
-
-
-class SerialCapacitorCalculateScreen(Screen):
-    # TODO: добавить функционал расчёта
-    pass
-
-
 class LM317CalculateScreen(Screen):
-    # TODO: добавить функционал расчёта
     pass
 
 
