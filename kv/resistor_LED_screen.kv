@@ -5,6 +5,10 @@
         BoxLayout:
             Label:
                 text: "Напряжение источника питания:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: led_vol
                 size_hint_x: 0.2
@@ -12,6 +16,10 @@
             Label:
                 size_hint_x: 0.1
                 text: "В"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Widget:
                 size_hint_x: 0.52
         BoxLayout:
@@ -21,21 +29,37 @@
                 BoxLayout:
                     Label:
                         text: "Напряжение питания светодиода:"
+                        text_size: self.size
+                        font_size: app.app_font_size
+                        halign: "center"
+                        valign: "center"
                     TextInput:
                         id: led_vol_input
                         size_hint_x: 0.2
                     Label:
                         size_hint_x: 0.1
                         text: "В"
+                        text_size: self.size
+                        font_size: app.app_font_size
+                        halign: "center"
+                        valign: "center"
                 BoxLayout:
                     Label:
                         text: "Ток светодиода:"
+                        text_size: self.size
+                        font_size: app.app_font_size
+                        halign: "center"
+                        valign: "center"
                     TextInput:
                         id: led_cur_input
                         size_hint_x: 0.2
                     Label:
                         size_hint_x: 0.1
                         text: "мА"
+                        text_size: self.size
+                        font_size: app.app_font_size
+                        halign: "center"
+                        valign: "center"
             Spinner:
                 size_hint_x: 0.4
                 text: "Выберите"
@@ -46,6 +70,10 @@
         BoxLayout:
             Label:
                 text: "Количество светодиодов:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: led_quantity
                 size_hint_x: 0.2
@@ -53,6 +81,10 @@
             Label:
                 size_hint_x: 0.1
                 text: "шт"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Widget:
                 size_hint_x: 0.52
         Button:
@@ -69,33 +101,66 @@
             size_hint_y: 0.03
         Label:
             text: "Результат:"
+            text_size: self.size
+            font_size: app.app_font_size
+            halign: "center"
+            valign: "center"
         BoxLayout:
             Label:
                 text: "Расчётное сопротивление:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 id: led_result
                 size_hint_x: 0.3
                 text_size: self.size
+                font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
         BoxLayout:
             Label:
                 text: "Стандартное значение:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 id: led_e24
                 size_hint_x: 0.3
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Рассеиваемая на резисторе мощность:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 id: led_res_power
                 size_hint_x: 0.3
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Потребляемый ток:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 id: led_cur
                 size_hint_x: 0.3
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Button:
                 text: "Назад"

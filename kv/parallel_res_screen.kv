@@ -31,9 +31,16 @@
         BoxLayout:
             Label:
                 text: "Результат:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 id: par_res_output
-                text: ""
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Button:
                 text: "Назад"

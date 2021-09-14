@@ -5,30 +5,54 @@
         BoxLayout:
             Label:
                 text: "Напряжение источника питания:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: v_in
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
                 text: "В"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Сопротивление R1:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: r1
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
                 text: "Ом"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Сопротивление R2:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: r2
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
                 text: "Ом"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         Button:
             text: "Рассчитать!"
             font_size: app.app_button_size
@@ -43,21 +67,49 @@
             size_hint_y: 0.05
         Label:
             text: "Результат:"
+            text_size: self.size
+            font_size: app.app_font_size
+            halign: "center"
+            valign: "center"
         BoxLayout:
             Label:
                 text: "Выходное напряжение:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 id: v_out
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 text: "В"
                 size_hint_x: 0.1
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Коэффициент делителя"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 id: divider_rate
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 size_hint_x: 0.1
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         Label:
             canvas.before:
                 Color:
@@ -69,30 +121,54 @@
         BoxLayout:
             Label:
                 text: "Напряжение источника питания:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: v_in_r
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
                 text: "В"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Выходное напряжение:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: v_out_r
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
                 text: "В"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Сопротивление R1:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: r1_input
                 size_hint_x: 0.1
             Label:
                 size_hint_x: 0.1
                 text: "Ом"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         Button:
             text: "Рассчитать!"
             font_size: app.app_button_size
@@ -107,29 +183,62 @@
             size_hint_y: 0.05
         Label:
             text: "Результат:"
+            text_size: self.size
+            font_size: app.app_font_size
+            halign: "center"
+            valign: "center"
         BoxLayout:
             Label:
                 text: "Сопротивление R2"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 id: r2_calculated
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Коэффициент делителя"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 id: divider_rate_r
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Резистор стандартного ряда"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 id: r2_e24
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Выходное напряжение с резистором из стандартного ряда"
+                text_size: self.size
+                font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-                text_size: self.size
             Label:
                 id: vout_e24
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Button:
                 text: "Назад"

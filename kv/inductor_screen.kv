@@ -4,33 +4,61 @@
         orientation: "vertical"
         Label:
             text: "Расчёт длины намотки и числа витков"
+            text_size: self.size
+            font_size: app.app_font_size
+            halign: "center"
+            valign: "center"
         BoxLayout:
             Label:
                 text: "Индуктивность:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: henrys
                 size_hint_x: 0.2
             Label:
                 size_hint_x: 0.1
                 text: "мкГн"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Диаметр каркаса:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: inductor_diameter
                 size_hint_x: 0.2
             Label:
                 size_hint_x: 0.1
                 text: "мм"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Диаметр провода:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: inductor_oneturn
                 size_hint_x: 0.2
             Label:
                 size_hint_x: 0.1
                 text: "мм"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         Button:
             text: "Рассчитать!"
             font_size: app.app_button_size
@@ -47,34 +75,74 @@
             size_hint_y: 2
             Label:
                 text: "Число витков:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             BoxLayout:
                 orientation: "vertical"
                 Label:
                     text: "Расчётное значение"
+                    text_size: self.size
+                    font_size: app.app_font_size
+                    halign: "center"
+                    valign: "center"
                 Label:
                     text: "Целое значение"
+                    text_size: self.size
+                    font_size: app.app_font_size
+                    halign: "center"
+                    valign: "center"
             BoxLayout:
                 orientation: "vertical"
                 Label:
                     id: inductor_turns
+                    text_size: self.size
+                    font_size: app.app_font_size
+                    halign: "center"
+                    valign: "center"
                 Label:
                     id: inductor_turns_int
+                    text_size: self.size
+                    font_size: app.app_font_size
+                    halign: "center"
+                    valign: "center"
         BoxLayout:
             size_hint_y: 2
             Label:
                 text: "Длина намотки:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             BoxLayout:
                 orientation: "vertical"
                 Label:
                     text: "Расчётное значение"
+                    text_size: self.size
+                    font_size: app.app_font_size
+                    halign: "center"
+                    valign: "center"
                 Label:
                     text: "Целое значение"
+                    text_size: self.size
+                    font_size: app.app_font_size
+                    halign: "center"
+                    valign: "center"
             BoxLayout:
                 orientation: "vertical"
                 Label:
                     id: inductor_length
+                    text_size: self.size
+                    font_size: app.app_font_size
+                    halign: "center"
+                    valign: "center"
                 Label:
                     id: inductor_length_int
+                    text_size: self.size
+                    font_size: app.app_font_size
+                    halign: "center"
+                    valign: "center"
         Label:
             canvas.before:
                 Color:
@@ -85,33 +153,61 @@
             size_hint_y: 0.05
         Label:
             text: "Расчёт индуктивности:"
+            text_size: self.size
+            font_size: app.app_font_size
+            halign: "center"
+            valign: "center"
         BoxLayout:
             Label:
                 text: "Число витков:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: inductor_turns_input
                 size_hint_x: 0.2
             Label:
                 text: 'шт'
                 size_hint_x: 0.1
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Диаметр каркаса:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: inductor_diameter_input
                 size_hint_x: 0.2
             Label:
                 text: 'мм'
                 size_hint_x: 0.1
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Label:
                 text: "Длина намотки:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             TextInput:
                 id: inductor_length_input
                 size_hint_x: 0.2
             Label:
                 text: 'мм'
                 size_hint_x: 0.1
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         Button:
             text: "Рассчитать!"
             font_size: app.app_button_size
@@ -127,8 +223,16 @@
         BoxLayout:
             Label:
                 text: "Индуктивность:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
             Label:
                 id: induction
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
         BoxLayout:
             Button:
                 text: "Назад"
