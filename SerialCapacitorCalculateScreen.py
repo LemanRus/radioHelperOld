@@ -1,3 +1,4 @@
+from kivy.app import App
 from kivy.properties import DictProperty
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import Screen
@@ -21,9 +22,13 @@ class SerialCapacitorCalculateScreen(Screen):
         try:
             self.dynamic_vars["box{}".format(self.counter)] = BoxLayout()
             self.ids["ser_cap_box"].add_widget(self.dynamic_vars["box{}".format(self.counter)])
-            self.dynamic_vars["input{}".format(self.counter)] = TextInput()
+            self.dynamic_vars["input{}".format(self.counter)] = TextInput(font_size=App.get_running_app().app_font_size,
+                                                                          multiline=False,
+                                                                          halign="center")
             self.dynamic_vars["box{}".format(self.counter)].add_widget(self.dynamic_vars["input{}".format(self.counter)])
-            self.dynamic_vars["picofarad{}".format(self.counter)] = Label(text="пФ")
+            self.dynamic_vars["picofarad{}".format(self.counter)] = Label(text="пФ",
+                                                                          font_size=App.get_running_app().app_font_size,
+                                                                          halign="center")
             self.dynamic_vars["box{}".format(self.counter)].add_widget(self.dynamic_vars["picofarad{}".format(self.counter)])
             self.counter += 1
         except Exception:

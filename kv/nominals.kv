@@ -64,8 +64,10 @@
             on_release: root.calculate_resistor(main_spinner.text)
         Label:
             id: resistance
-            text: ""
+            text_size: self.size
             font_size: app.app_font_size
+            halign: "center"
+            valign: "center"
         Label:
             text: "Для SMD резистора впишите в поле ниже маркировку с резистора: "
             text_size: self.size
@@ -88,6 +90,10 @@
                 on_release: root.calculate_smd_resistor(smd_input.text)
         Label:
             id: smd_resistance
+            text_size: self.size
+            font_size: app.app_font_size
+            halign: "center"
+            valign: "center"
         BoxLayout:
             Button:
                 text: "Назад"
