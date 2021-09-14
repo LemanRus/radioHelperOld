@@ -86,6 +86,9 @@
             text: "На главный\nЗдесь будут распиновки"
             font_size: app.app_button_size
             size_hint_y: 0.2
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.manager.current = "main"
 
 <SchemesScreen>:
@@ -94,6 +97,9 @@
         Button:
             text: "На главный\nЗдесь будут схемы"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.manager.current = "main"
 
 <SymbolsScreen>:
@@ -102,6 +108,9 @@
         Button:
             text: "На главный\nЗдесь будут обозначения"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.manager.current = "main"
 
 <StatesScreen>:
@@ -110,6 +119,9 @@
         Button:
             text: "На главный\nЗдесь будут статьи"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.manager.current = "main"
 
 <HelpScreen>:
@@ -118,6 +130,9 @@
         Button:
             text: "На главный\nЗдесь будет помощь"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.manager.current = "main"
 
 <AboutScreen>:
@@ -126,4 +141,7 @@
         Button:
             text: "На главный\nЗдесь будет 'о программе'"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.manager.current = "main"

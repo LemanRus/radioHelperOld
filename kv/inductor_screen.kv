@@ -77,6 +77,9 @@
         Button:
             text: "Рассчитать!"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.inductor_calculate_turns(henrys.text, inductor_diameter.text, inductor_oneturn.text)
         Label:
             canvas.before:
@@ -241,6 +244,9 @@
         Button:
             text: "Рассчитать!"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.inductor_calculate_henrys(inductor_turns_input.text, inductor_diameter_input.text, inductor_length_input.text)
         Label:
             canvas.before:
@@ -267,8 +273,14 @@
             Button:
                 text: "Назад"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "components"
             Button:
                 text: "На главный"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "main"

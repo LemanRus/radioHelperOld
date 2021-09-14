@@ -5,19 +5,31 @@
         Button:
             text: "Стабилизатор напряжения"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.manager.current = "LM317_voltage"
         Button:
             text: "Стабилизатор тока"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.manager.current = "LM317_current"
         BoxLayout:
             Button:
                 text: "Назад"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "components"
             Button:
                 text: "На главный"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "main"
 
 <LM317Voltage>:
@@ -115,6 +127,9 @@
         Button:
             text: "Рассчитать!"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.calculate_lm317_voltage(lm317_vout_input.text, lm317_r1_input.text, lm317_iout_input.text, lm317_vin_input.text)
         Label:
             canvas.before:
@@ -198,10 +213,16 @@
             Button:
                 text: "Назад"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "lm317_cal"
             Button:
                 text: "На главный"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "main"
 
 <LM317Current>:
@@ -255,6 +276,9 @@
         Button:
             text: "Рассчитать!"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.calculate_lm317_current(lm317_iout_input_cur.text, lm317_vout_input_cur.text)
         Label:
             canvas.before:
@@ -366,8 +390,14 @@
             Button:
                 text: "Назад"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "lm317_cal"
             Button:
                 text: "На главный"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "main"

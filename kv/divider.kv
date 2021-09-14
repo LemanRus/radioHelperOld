@@ -71,6 +71,9 @@
         Button:
             text: "Рассчитать!"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.divider_calculate_vout(v_in.text, r1.text, r2.text)
         Label:
             canvas.before:
@@ -202,6 +205,9 @@
         Button:
             text: "Рассчитать!"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.divider_calculate_r(v_in_r.text, v_out_r.text, r1_input.text)
         Label:
             canvas.before:
@@ -273,8 +279,14 @@
             Button:
                 text: "Назад"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "components"
             Button:
                 text: "На главный"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "main"

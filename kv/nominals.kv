@@ -11,14 +11,23 @@
         Button:
             text: "Резисторы"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.manager.current = "resistor"
         Button:
             text: "Конденсаторы"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.manager.current = "capacitor"
         Button:
             text: "На главный"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.manager.current = "main"
 
 <ResistorScreen>:
@@ -59,8 +68,11 @@
                 size_hint_x: 0.25
 
         Button:
-            text: "Рассчитать"
+            text: "Рассчитать!"
             font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
             on_release: root.calculate_resistor(main_spinner.text)
         Label:
             id: resistance
@@ -87,6 +99,9 @@
                 text: "Рассчитать"
                 size_hint_x: 0.2
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.calculate_smd_resistor(smd_input.text)
         Label:
             id: smd_resistance
@@ -98,10 +113,16 @@
             Button:
                 text: "Назад"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "nominal"
             Button:
                 text: "На главный"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "main"
 
 <CapacitorScreen>:
@@ -126,6 +147,9 @@
                 text: "Рассчитать"
                 size_hint_x: 0.2
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.calculate_capacitor(capacitor_input.text)
         Label:
             id: capacity
@@ -151,6 +175,9 @@
                 text: "Рассчитать"
                 font_size: app.app_button_size
                 size_hint_x: 0.2
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.calculate_smd_capacitor(smd_capacitor_input.text)
         Label:
             id: smd_capacity
@@ -163,7 +190,13 @@
                 text: "Назад"
                 font_size: app.app_button_size
                 on_release: root.manager.current = "nominal"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
             Button:
                 text: "На главный"
                 font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
                 on_release: root.manager.current = "main"
