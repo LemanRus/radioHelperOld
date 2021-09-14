@@ -25,7 +25,8 @@ class ParallelResistorCalculateScreen(Screen):
             self.dynamic_vars["input{}".format(self.counter)] = TextInput(font_size=App.get_running_app().app_font_size,
                                                                           multiline=False,
                                                                           halign="center")
-            self.dynamic_vars["box{}".format(self.counter)].add_widget(self.dynamic_vars["input{}".format(self.counter)])
+            self.dynamic_vars["box{}".format(self.counter)].add_widget(self.dynamic_vars["input{}".format(self.counter)
+                                                                                         ])
 #            for ids, value in self.dynamic_vars.items():
 #                if ids.startswith("input"):
 #                    value.padding = [0, value.height / 2.0 - (value.line_height / 2.0) * len(value._lines), 0, 0]
@@ -49,4 +50,3 @@ class ParallelResistorCalculateScreen(Screen):
             self.ids.par_res_output.text = "Неверный ввод!"
         except ZeroDivisionError:
             self.ids.par_res_output.text = StandardRows.format_output_resistor(0)
-

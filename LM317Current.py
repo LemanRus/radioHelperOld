@@ -17,20 +17,8 @@ class LM317Current(Screen):
                     recommend = "LM350"
                 else:
                     recommend = "LM317"
-    
-                if r1 < 1000:
-                    result = "{:g} Ом".format(r1)
-                elif r1 < 1000000:
-                    result = "{:g} кОм".format(r1 / 1000)
-                else:
-                    result = "{:g} МОм".format(r1 / 1000000)
-
-                if r1_corrected < 1000:
-                    result_corrected = "{:g} Ом".format(r1_corrected)
-                elif r1_corrected < 1000000:
-                    result_corrected = "{:g} кОм".format(r1_corrected / 1000)
-                else:
-                    result_corrected = "{:g} МОм".format(r1_corrected / 1000000)
+                result = StandardRows.format_output_resistor(r1)
+                result_corrected = StandardRows.format_output_resistor(r1_corrected)
 
                 iout_corrected = 1.25 / r1_corrected
 
@@ -62,7 +50,6 @@ class LM317Current(Screen):
                 self.ids.lm317_recommend_output_cur.text = ""
                 self.ids.lm317_vin_output_cur.text = ""
 
-
         except Exception:
             self.ids.lm317_r1_output_cur.text = "Неверный ввод!"
             self.ids.lm317_r1_corrected_output_cur.text = "Неверный ввод!"
@@ -71,4 +58,3 @@ class LM317Current(Screen):
             self.ids.lm317_iout_corrected_output_cur.text = "Неверный ввод!"
             self.ids.lm317_recommend_output_cur.text = "Неверный ввод!"
             self.ids.lm317_vin_output_cur.text = "Неверный ввод!"
-

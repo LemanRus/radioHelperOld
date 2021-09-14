@@ -16,25 +16,12 @@ class ResistorLEDCalculateScreen(Screen):
                 self.ids.led_cur.text = ''
                 self.ids.led_e24.text = ''
             else:
-                if led_resistance == 0:
-                    result = "0 Ом (перемычка)"
-                elif led_resistance < 1000:
-                    result = "{:g} Ом".format(led_resistance)
-                elif led_resistance < 1000000:
-                    result = "{:g} кОм".format(led_resistance / 1000)
-                else:
-                    result = "{:g} МОм".format(led_resistance / 1000000)
-                self.ids.led_result.text = result
-                e6_result = StandardRows.calculate_standard_resistor(led_resistance, True)
-                if e6_result == 0:
-                    self.ids.led_e24.text = "0 Ом (перемычка)"
-                elif e6_result < 1000:
-                    self.ids.led_e24.text = "{:g} Ом".format(e6_result)
-                elif e6_result < 1000000:
-                    self.ids.led_e24.text = "{:g} кОм".format(e6_result / 1000)
-                else:
-                    self.ids.led_e24.text = "{:g} МОм".format(e6_result / 1000000)
-                self.ids.led_res_power.text = "{:g} мВт".format((float(vol) - float(led_vol)) * float(led_cur) * float(led_quant))
+                self.ids.led_result.text = StandardRows.format_output_resistor(led_resistance)
+                e24_result = StandardRows.calculate_standard_resistor(led_resistance, True)
+                self.ids.led_e24.text = StandardRows.format_output_resistor(e24_result)
+
+                self.ids.led_res_power.text = "{:g} мВт".format((float(vol) - float(led_vol)) *
+                                                                float(led_cur) * float(led_quant))
                 self.ids.led_cur.text = "{:g} мА".format(float(led_cur) * float(led_quant))
         except ValueError:
             self.ids.led_e24.text = "Неверный ввод!"

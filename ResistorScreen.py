@@ -5,7 +5,10 @@ from kivy.uix.screenmanager import Screen
 from kivy.uix.spinner import Spinner
 from kivy.uix.widget import Widget
 
+from StandardRows import StandardRows
+
 Config.read("radiohelper.ini")
+
 
 class ResistorScreen(Screen):
     dynamic_vars = DictProperty({})
@@ -40,9 +43,10 @@ class ResistorScreen(Screen):
     def select_color(self):
         pass
 
-    def calculate_resistor(self, value):
+    def calculate_resistor(self):
 
-        thermal = False
+        thermal = ""
+        tolerance = ""
 
         if "band5" in self.dynamic_vars.keys():
             thermal = self.thermal[self.dynamic_vars["band5"].text]
@@ -50,8 +54,8 @@ class ResistorScreen(Screen):
             tolerance = self.tolerance[self.dynamic_vars["band4"].text]
         if len(self.ids["resistor_bands"].children) == 5 or len(self.ids["resistor_bands"].children) == 7:
             multiplier = self.multiplier[self.dynamic_vars["band2"].text]
-            resistance = (self.nominal[self.dynamic_vars["band0"].text] * 10 + \
-                         self.nominal[self.dynamic_vars["band1"].text]) * multiplier
+            resistance = (self.nominal[self.dynamic_vars["band0"].text] * 10 +
+                          self.nominal[self.dynamic_vars["band1"].text]) * multiplier
 
             if "band3" in self.dynamic_vars.keys():
                 tolerance = self.tolerance[self.dynamic_vars["band3"].text]
@@ -59,16 +63,19 @@ class ResistorScreen(Screen):
                 tolerance = "±20%"
         else:
             multiplier = self.multiplier[self.dynamic_vars["band3"].text]
-            resistance = (self.nominal[self.dynamic_vars["band0"].text] * 100 + \
-                         self.nominal[self.dynamic_vars["band1"].text] * 10 + \
+            resistance = (self.nominal[self.dynamic_vars["band0"].text] * 100 +
+                          self.nominal[self.dynamic_vars["band1"].text] * 10 +
                           self.nominal[self.dynamic_vars["band1"].text]) * multiplier
 
         if resistance < 1000:
-            self.ids.resistance.text = "{:g} Ом {}{}".format(resistance, tolerance, (", ТКС: " + thermal) if thermal else "")
+            self.ids.resistance.text = "{:g} Ом {}{}".format(resistance, tolerance,
+                                                             (", ТКС: " + thermal) if thermal else "")
         elif resistance < 1000000:
-            self.ids.resistance.text = "{:g} кОм {}{}".format(resistance / 1000, tolerance, (", ТКС: " + thermal) if thermal else "")
+            self.ids.resistance.text = "{:g} кОм {}{}".format(resistance / 1000, tolerance,
+                                                              (", ТКС: " + thermal) if thermal else "")
         else:
-            self.ids.resistance.text = "{:g} МОм {}{}".format(resistance / 1000000, tolerance, (", ТКС: " + thermal) if thermal else "")
+            self.ids.resistance.text = "{:g} МОм {}{}".format(resistance / 1000000, tolerance,
+                                                              (", ТКС: " + thermal) if thermal else "")
 
     def build_resistor(self, value):
         bands = {3: {0: list(self.nominal.keys())[1:], 1: list(self.nominal.keys()), 2: list(self.multiplier.keys())},
@@ -87,8 +94,13 @@ class ResistorScreen(Screen):
             try:
                 self.dynamic_vars["band{}".format(bands_qty)] = Spinner(text=bands[int(value)][bands_qty][0],
                                                                         values=list(bands[int(value)][bands_qty]),
-                                                                        background_color=self.colors[bands[int(value)][bands_qty][0]],
-                                                                        color=[0, 0, 0, 1] if bands[int(value)][bands_qty][0] == "gold" else [1, 1, 1, 1],
+                                                                        background_color=self.colors[
+                                                                            bands[int(value)][bands_qty][0]],
+                                                                        color=[0, 0, 0, 1] if bands[
+                                                                                                  int(value)][
+                                                                                                  bands_qty][
+                                                                                                  0] == "gold" else [
+                                                                            1, 1, 1, 1],
                                                                         background_normal="",
                                                                         font_size=App.get_running_app().app_button_size,
                                                                         option_cls="MySpinnerOption",)
@@ -102,7 +114,7 @@ class ResistorScreen(Screen):
             except KeyError:
                 continue
 
-    def colourize(self, *args):
+    def colourize(self):
         for key, band in self.dynamic_vars.items():
             if key.startswith("band"):
                 band.background_color = self.colors[band.text]
@@ -112,40 +124,35 @@ class ResistorScreen(Screen):
                     band.color = [1, 1, 1, 1]
 
     def calculate_smd_resistor(self, marking):
-        self.ids.smd_resistance.text = ""
-        resistance = ""
-        if marking in ["0", "00", "000", "0000"]:
-            resistance = 0
-        elif "R" in marking and marking[2] != "R":
-            if len(marking) == 3 or len(marking) == 4:
-                markings = marking.split("R")
-                resistance = float("{}.{}".format(markings[0], markings[1]))
+        try:
+            self.ids.smd_resistance.text = ""
+            resistance = ""
+            if marking in ["0", "00", "000", "0000"]:
+                resistance = 0
+            elif "R" in marking and marking[2] != "R":
+                if len(marking) == 3 or len(marking) == 4:
+                    markings = marking.split("R")
+                    resistance = float("{}.{}".format(markings[0], markings[1]))
+                else:
+                    self.ids.smd_resistance.text = "Неверный ввод"
+            elif "r" in marking:
+                if len(marking) == 3 or len(marking) == 4:
+                    markings = marking.split("r")
+                    resistance = float("{}.{}".format(markings[0], markings[1]))
+                else:
+                    self.ids.smd_resistance.text = "Неверный ввод"
+            elif len(marking) == 3:
+                if marking[2].isalpha() and marking[2] in self.eia96_multiplier.keys():
+                    multiplier = self.eia96_multiplier[marking[2]]
+                    resistance = self.eia96[marking[:2]] * multiplier
+                else:
+                    resistance = float(marking[:2]) * 10 ** (float(marking[2]))
+            elif len(marking) == 4:
+                resistance = float(marking[:3]) * 10 ** (float(marking[3]))
             else:
                 self.ids.smd_resistance.text = "Неверный ввод"
-        elif "r" in marking:
-            if len(marking) == 3 or len(marking) == 4:
-                markings = marking.split("r")
-                resistance = float("{}.{}".format(markings[0], markings[1]))
-            else:
-                self.ids.smd_resistance.text = "Неверный ввод"
-        elif len(marking) == 3:
-            if marking[2].isalpha() and marking[2] in self.eia96_multiplier.keys():
-                multiplier = self.eia96_multiplier[marking[2]]
-                resistance = self.eia96[marking[:2]] * multiplier
-            else:
-                resistance = float(marking[:2]) * 10 ** (float(marking[2]))
-        elif len(marking) == 4:
-            resistance = float(marking[:3]) * 10 ** (float(marking[3]))
-        else:
-            self.ids.smd_resistance.text = "Неверный ввод"
 
-        if resistance != "":
-            if resistance == 0:
-                self.ids.smd_resistance.text = "0 Ом (перемычка)"
-            elif resistance < 1000:
-                self.ids.smd_resistance.text = "{:g} Ом".format(resistance)
-            elif resistance < 1000000:
-                self.ids.smd_resistance.text = "{:g} кОм".format(resistance / 1000)
-            else:
-                self.ids.smd_resistance.text = "{:g} МОм".format(resistance / 1000000)
-
+            if resistance != "":
+                self.ids.smd_resistance.text = StandardRows.format_output_resistor(resistance)
+        except ValueError:
+            self.ids.smd_resistance.text = "Неверный ввод!"

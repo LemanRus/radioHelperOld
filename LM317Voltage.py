@@ -19,14 +19,8 @@ class LM317Voltage(Screen):
                 self.ids.lm317_power_output.text = ""
             else:
                 r2 = r1 * (vout / 1.25 - 1)
-                if r2 == 0:
-                    result = "0 Ом (перемычка)"
-                elif r2 < 1000:
-                    result = "{:g} Ом".format(r2)
-                elif r2 < 1000000:
-                    result = "{:g} кОм".format(r2 / 1000)
-                else:
-                    result = "{:g} МОм".format(r2 / 1000000)
+                result = StandardRows.format_output_resistor(r2)
+
                 r2_corrected = StandardRows.calculate_standard_resistor(r2, False)
 
                 power = (vin - vout) * iout
@@ -39,21 +33,14 @@ class LM317Voltage(Screen):
                     recommend = "LM350"
                 else:
                     recommend = "LM317"
-
-                if r2_corrected == 0:
-                    result_corrected = "0 Ом (перемычка)"
-                elif r2_corrected < 1000:
-                    result_corrected = "{:g} Ом".format(r2_corrected)
-                elif r2_corrected < 1000000:
-                    result_corrected = "{:g} кОм".format(r2_corrected / 1000)
-                else:
-                    result_corrected = "{:g} МОм".format(r2_corrected / 1000000)
+                result_corrected = StandardRows.format_output_resistor(r2_corrected)
 
                 self.ids.lm317_r2_corrected_output.text = result_corrected
                 self.ids.lm317_r2_output.text = result
                 self.ids.lm317_vout_output.text = "{:g} В".format(vout_corrected)
                 self.ids.lm317_recommend_output.text = recommend
                 self.ids.lm317_power_output.text = "{:g} Вт".format(power)
+
         except Exception:
             self.ids.lm317_r2_output.text = "Неверный ввод!"
             self.ids.lm317_r2_corrected_output.text = "Неверный ввод!"

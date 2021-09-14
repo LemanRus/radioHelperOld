@@ -43,4 +43,3 @@ class InductorCalculateScreen(Screen):
             self.ids.induction.text = "{:g} мкГн".format(induction)
         except Exception:
             self.ids.induction.text = "Неверный ввод!"
-

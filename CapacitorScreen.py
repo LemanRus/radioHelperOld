@@ -1,5 +1,7 @@
 from kivy.uix.screenmanager import Screen
 
+from StandardRows import StandardRows
+
 
 class CapacitorScreen(Screen):
 
@@ -24,14 +26,7 @@ class CapacitorScreen(Screen):
             self.ids.capacity.text = "Неверный ввод"
 
         if capacity != "":
-            if capacity == 0:
-                self.ids.capacity.text = "0 мкФ (вероятно, перемычка)"
-            elif capacity < 1000:
-                self.ids.capacity.text = "{:g} пФ".format(capacity)
-            elif capacity < 1000000:
-                self.ids.capacity.text = "{:g} нФ".format(capacity / 1000)
-            else:
-                self.ids.capacity.text = "{:g} мкФ".format(capacity / 1000000)
+            self.ids.capacity.text = StandardRows.format_output_capacitor(capacity)
 
     def calculate_smd_capacitor(self, value):
         capacity = ""
@@ -49,11 +44,4 @@ class CapacitorScreen(Screen):
             self.ids.smd_capacity.text = "Неверный ввод"
 
         if capacity != "":
-            if capacity == 0:
-                self.ids.smd_capacity.text = "0 мкФ (вероятно, перемычка)"
-            elif capacity < 1000:
-                self.ids.smd_capacity.text = "{:g} пФ, {}В".format(capacity, voltage)
-            elif capacity < 1000000:
-                self.ids.smd_capacity.text = "{:g} нФ, {}В".format(capacity / 1000, voltage)
-            else:
-                self.ids.smd_capacity.text = "{:g} мкФ, {}В".format(capacity / 1000000, voltage)
+            self.ids.smd_capacity.text = StandardRows.format_output_capacitor(capacity) + ", " + str(voltage) + " В"

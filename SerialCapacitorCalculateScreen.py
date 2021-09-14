@@ -25,11 +25,13 @@ class SerialCapacitorCalculateScreen(Screen):
             self.dynamic_vars["input{}".format(self.counter)] = TextInput(font_size=App.get_running_app().app_font_size,
                                                                           multiline=False,
                                                                           halign="center")
-            self.dynamic_vars["box{}".format(self.counter)].add_widget(self.dynamic_vars["input{}".format(self.counter)])
+            self.dynamic_vars["box{}".format(self.counter
+                                             )].add_widget(self.dynamic_vars["input{}".format(self.counter)])
             self.dynamic_vars["picofarad{}".format(self.counter)] = Label(text="пФ",
                                                                           font_size=App.get_running_app().app_font_size,
                                                                           halign="center")
-            self.dynamic_vars["box{}".format(self.counter)].add_widget(self.dynamic_vars["picofarad{}".format(self.counter)])
+            self.dynamic_vars["box{}".format(self.counter
+                                             )].add_widget(self.dynamic_vars["picofarad{}".format(self.counter)])
             self.counter += 1
         except Exception:
             print("Heresy!!")
@@ -46,4 +48,3 @@ class SerialCapacitorCalculateScreen(Screen):
             self.ids.ser_cap_output.text = "Неверный ввод!"
         except ZeroDivisionError:
             self.ids.ser_cap_output.text = StandardRows.format_output_capacitor(0)
-
