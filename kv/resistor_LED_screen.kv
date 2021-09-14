@@ -13,6 +13,11 @@
                 id: led_vol
                 size_hint_x: 0.2
                 text: '5'
+                font_size: app.app_font_size
+                multiline: False
+                halign: "center"
+                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+                on_text_validate:
             Label:
                 size_hint_x: 0.1
                 text: "В"
@@ -36,6 +41,11 @@
                     TextInput:
                         id: led_vol_input
                         size_hint_x: 0.2
+                        font_size: app.app_font_size
+                        multiline: False
+                        halign: "center"
+                        padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+                        on_text_validate:
                     Label:
                         size_hint_x: 0.1
                         text: "В"
@@ -53,6 +63,11 @@
                     TextInput:
                         id: led_cur_input
                         size_hint_x: 0.2
+                        font_size: app.app_font_size
+                        multiline: False
+                        halign: "center"
+                        padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+                        on_text_validate:
                     Label:
                         size_hint_x: 0.1
                         text: "мА"
@@ -78,6 +93,11 @@
                 id: led_quantity
                 size_hint_x: 0.2
                 text: '1'
+                font_size: app.app_font_size
+                multiline: False
+                halign: "center"
+                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+                on_text_validate:
             Label:
                 size_hint_x: 0.1
                 text: "шт"
