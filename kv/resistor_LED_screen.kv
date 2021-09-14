@@ -57,6 +57,7 @@
                 size_hint_x: 0.52
         Button:
             text: "Рассчитать!"
+            font_size: app.app_button_size
             on_release: root.led_calculate(led_vol.text, led_vol_input.text, led_cur_input.text, led_quantity.text)
         Label:
             canvas.before:

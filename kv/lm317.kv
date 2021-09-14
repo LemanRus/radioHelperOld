@@ -62,6 +62,7 @@
                 text: "В"
         Button:
             text: "Рассчитать!"
+            font_size: app.app_button_size
             on_release: root.calculate_lm317_voltage(lm317_vout_input.text, lm317_r1_input.text, lm317_iout_input.text, lm317_vin_input.text)
         Label:
             canvas.before:
@@ -135,6 +136,7 @@
                 text: "В"
         Button:
             text: "Рассчитать!"
+            font_size: app.app_button_size
             on_release: root.calculate_lm317_current(lm317_iout_input_cur.text, lm317_vout_input_cur.text)
         Label:
             canvas.before:

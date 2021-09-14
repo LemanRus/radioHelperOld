@@ -10,12 +10,15 @@
         BoxLayout:
             Button:
                 text: "Добавить резистор"
+                font_size: app.app_button_size
                 on_release: root.add_resistor()
             Button:
                 text: "Очистить"
+                font_size: app.app_button_size
                 on_release: root.reset()
         Button:
             text: "Рассчитать!"
+            font_size: app.app_button_size
             on_release: root.par_res_calculate()
         Label:
             canvas.before:

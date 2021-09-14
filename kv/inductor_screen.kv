@@ -33,6 +33,7 @@
                 text: "мм"
         Button:
             text: "Рассчитать!"
+            font_size: app.app_button_size
             on_release: root.inductor_calculate_turns(henrys.text, inductor_diameter.text, inductor_oneturn.text)
         Label:
             canvas.before:
@@ -42,7 +43,6 @@
                     size: self.size
                     pos: self.pos
             size_hint_y: 0.05
-            # TODO: Вынести налево заголовки
         BoxLayout:
             size_hint_y: 2
             Label:
@@ -52,9 +52,11 @@
                 Label:
                     text: "Расчётное значение"
                 Label:
-                    id: inductor_turns
-                Label:
                     text: "Целое значение"
+            BoxLayout:
+                orientation: "vertical"
+                Label:
+                    id: inductor_turns
                 Label:
                     id: inductor_turns_int
         BoxLayout:
@@ -66,9 +68,11 @@
                 Label:
                     text: "Расчётное значение"
                 Label:
-                    id: inductor_length
-                Label:
                     text: "Целое значение"
+            BoxLayout:
+                orientation: "vertical"
+                Label:
+                    id: inductor_length
                 Label:
                     id: inductor_length_int
         Label:
@@ -110,6 +114,7 @@
                 size_hint_x: 0.1
         Button:
             text: "Рассчитать!"
+            font_size: app.app_button_size
             on_release: root.inductor_calculate_henrys(inductor_turns_input.text, inductor_diameter_input.text, inductor_length_input.text)
         Label:
             canvas.before:

@@ -79,7 +79,7 @@
                 font_size: app.app_font_size
                 multiline: False
                 halign: "center"
-                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate: root.calculate_smd_resistor(self.text)
             Button:
                 text: "Рассчитать"
@@ -114,7 +114,7 @@
                 font_size: app.app_font_size
                 multiline: False
                 halign: "center"
-                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate: root.calculate_capacitor(self.text)
             Button:
                 text: "Рассчитать"
@@ -139,7 +139,7 @@
                 font_size: app.app_font_size
                 multiline: False
                 halign: "center"
-                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate: root.calculate_smd_capacitor(self.text)
             Button:
                 text: "Рассчитать"

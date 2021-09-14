@@ -3,18 +3,13 @@ import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen, ResistorL
     SerialCapacitorCalculateScreen
 
 import os
-
 from kivy.app import App
-
 from kivy.lang import Builder
-
 from kivy.properties import NumericProperty
-
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.settings import SettingsWithSidebar
 from kivy.config import Config
 from kivy.uix.spinner import SpinnerOption
-
 
 from settingsjson import settings_json
 

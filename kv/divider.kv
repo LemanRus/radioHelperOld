@@ -31,6 +31,7 @@
                 text: "Ом"
         Button:
             text: "Рассчитать!"
+            font_size: app.app_button_size
             on_release: root.divider_calculate_vout(v_in.text, r1.text, r2.text)
         Label:
             canvas.before:
@@ -94,6 +95,7 @@
                 text: "Ом"
         Button:
             text: "Рассчитать!"
+            font_size: app.app_button_size
             on_release: root.divider_calculate_r(v_in_r.text, v_out_r.text, r1_input.text)
         Label:
             canvas.before:
