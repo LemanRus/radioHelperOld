@@ -1,6 +1,8 @@
+from kivymd.app import MDApp
+
 import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen, ResistorLEDCalculateScreen, \
     InductorCalculateScreen, LM317Current, LM317Voltage, ParallelResistorCalculateScreen, \
-    SerialCapacitorCalculateScreen
+    SerialCapacitorCalculateScreen, AboutScreen
 
 import os
 from kivy.app import App
@@ -60,10 +62,6 @@ class HelpScreen(Screen):
     pass
 
 
-class AboutScreen(Screen):
-    pass
-
-
 class MySpinnerOption(SpinnerOption):
     colors = {"gold": [1, 0.84, 0, 1], "silver": [0.75, 0.75, 0.75, 1], "black": [0, 0, 0, 1],
               "brown": [0.4, 0.22, 0, 1], "red": [1, 0, 0, 1], "orange": [0.98, 0.45, 0.02, 1],
@@ -71,7 +69,7 @@ class MySpinnerOption(SpinnerOption):
               "violet": [0.54, 0.14, 0.59, 1], "grey": [0.5, 0.5, 0.5, 1], "white": [1, 1, 1, 1]}
 
 
-class RadioHelperApp(App):
+class RadioHelperApp(MDApp):
 
     app_font_size = NumericProperty()
     app_header_size = NumericProperty()
@@ -85,6 +83,7 @@ class RadioHelperApp(App):
         self.app_header_size = self.config.getint("font", "header_size")
         self.app_button_size = self.config.getint("font", "button_size")
         self.use_kivy_settings = False
+        self.theme_cls.theme_style = "Dark"
         return RadioHelperScreenManager()
 
     def build_config(self, config):
